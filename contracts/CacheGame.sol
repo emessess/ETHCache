@@ -8,7 +8,7 @@ contract CacheGame {
     uint bounty;
     bytes32 title;
     bytes32 hint;
-    string passphrase;
+    bytes32 passphrase;
     bool found;
   }
   
@@ -17,14 +17,16 @@ contract CacheGame {
   Cache[] public openCaches;
   Cache[] public closedCaches;
 
-  function createCache(bytes32 _title, bytes32 _hint, string _passphrase) payable 
+// make a new cache
+
+  function createCache(bytes32 _title, bytes32 _hint, bytes32 _passphrase) public payable 
   {
     caches[msg.sender] = Cache({
       creator: msg.sender,
       bounty: msg.value,
       title: _title,
       hint: _hint,
-      passphrase: _passphrase,
+      passphrase: keccak256(_passphrase),
       found: false
     });
 
@@ -32,9 +34,31 @@ contract CacheGame {
 
   }
 
-  function viewCache(address cacheAddress) constant returns(bytes32, bytes32, uint) {
+//solve an existing cache
+
+  function solveCache(address cacheAddress, string passPhrase) public 
+  {
+    //check validity
+    require(keccak256(caches[cacheAddress].passphrase) == keccak256(passPhrase));
+    
+    //declare bounty
+    uint bountyAmount = caches[cacheAddress].bounty;
+    
+    //set cache to found and zero out bounty
+    caches[cacheAddress].found = true;
+    caches[cacheAddress].bounty = 0;
+
+    //pay bounty
+    msg.sender.transfer(bountyAmount);
+
+  }
+
+//view an active cache
+
+  function viewCache(address cacheAddress) public constant returns(bytes32, bytes32, uint) {
     return (caches[cacheAddress].title, caches[cacheAddress].hint, caches[cacheAddress].bounty);
   }
+
 
 
 
