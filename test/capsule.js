@@ -1,5 +1,4 @@
 const Capsule = artifacts.require('./Capsule.sol');
-const web3 = require(web3)
 
 contract('Capsule', (accounts) => {
   it('...should store a message "hello world"', () => {

@@ -1,0 +1,1416 @@
+{
+  "contractName": "CacheGame",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "cacheAddress",
+          "type": "address"
+        }
+      ],
+      "name": "viewCache",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32"
+        },
+        {
+          "name": "",
+          "type": "bytes32"
+        },
+        {
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "name": "hint",
+          "type": "bytes32"
+        },
+        {
+          "name": "passphrase",
+          "type": "string"
+        },
+        {
+          "name": "found",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "openCaches",
+      "outputs": [
+        {
+          "name": "creator",
+          "type": "address"
+        },
+        {
+          "name": "bounty",
+          "type": "uint256"
+        },
+        {
+          "name": "title",
+          "type": "bytes32"
+        },
+        {
+          "name": "hint",
+          "type": "bytes32"
+        },
+        {
+          "name": "passphrase",
+          "type": "string"
+        },
+        {
+          "name": "found",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "name": "_hint",
+          "type": "bytes32"
+        },
+        {
+          "name": "_passphrase",
+          "type": "string"
+        }
+      ],
+      "name": "closedCaches",
+      "outputs": [
+        {
+          "name": "creator",
+          "type": "address"
+        },
+        {
+          "name": "bounty",
+          "type": "uint256"
+        },
+        {
+          "name": "title",
+          "type": "bytes32"
+        },
+        {
+          "name": "hint",
+          "type": "bytes32"
+        },
+        {
+          "name": "passphrase",
+          "type": "string"
+        },
+        {
+          "name": "found",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_title",
+          "type": "bytes32"
+        },
+        {
+          "name": "_hint",
+          "type": "bytes32"
+        },
+        {
+          "name": "_passphrase",
+          "type": "string"
+        }
+      ],
+      "name": "createCache",
+      "outputs": [
+        {
+          "name": "creator",
+          "type": "address"
+        },
+        {
+          "name": "bounty",
+          "type": "uint256"
+        },
+        {
+          "name": "title",
+          "type": "bytes32"
+        },
+        {
+          "name": "hint",
+          "type": "bytes32"
+        },
+        {
+          "name": "passphrase",
+          "type": "string"
+        },
+        {
+          "name": "found",
+          "type": "bool"
+        }
+      ],
+      "payable": true,
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "caches",
+      "outputs": [
+        {
+          "name": "creator",
+          "type": "address"
+        },
+        {
+          "name": "bounty",
+          "type": "uint256"
+        },
+        {
+          "name": "title",
+          "type": "bytes32"
+        },
+        {
+          "name": "hint",
+          "type": "bytes32"
+        },
+        {
+          "name": "passphrase",
+          "type": "string"
+        },
+        {
+          "name": "found",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x6060604052341561000f57600080fd5b610bc88061001e6000396000f30060606040526004361061006d576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063372525a5146100725780634f13ee44146100dd578063803b6965146101f9578063f112d9f414610315578063f818c58714610381575b600080fd5b341561007d57600080fd5b6100a9600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506104b3565b6040518084600019166000191681526020018360001916600019168152602001828152602001935050505060405180910390f35b34156100e857600080fd5b6100fe600480803590602001909190505061058b565b604051808773ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018681526020018560001916600019168152602001846000191660001916815260200180602001831515151581526020018281038252848181546001816001161561010002031660029004815260200191508054600181600116156101000203166002900480156101e55780601f106101ba576101008083540402835291602001916101e5565b820191906000526020600020905b8154815290600101906020018083116101c857829003601f168201915b505097505050505050505060405180910390f35b341561020457600080fd5b61021a6004808035906020019091905050610602565b604051808773ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018681526020018560001916600019168152602001846000191660001916815260200180602001831515151581526020018281038252848181546001816001161561010002031660029004815260200191508054600181600116156101000203166002900480156103015780601f106102d657610100808354040283529160200191610301565b820191906000526020600020905b8154815290600101906020018083116102e457829003601f168201915b505097505050505050505060405180910390f35b61037f6004808035600019169060200190919080356000191690602001909190803590602001908201803590602001908080601f01602080910402602001604051908101604052809392919081815260200183838082843782019150505050505091905050610679565b005b341561038c57600080fd5b6103b8600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190505061090c565b604051808773ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200186815260200185600019166000191681526020018460001916600019168152602001806020018315151515815260200182810382528481815460018160011615610100020316600290048152602001915080546001816001161561010002031660029004801561049f5780601f106104745761010080835404028352916020019161049f565b820191906000526020600020905b81548152906001019060200180831161048257829003601f168201915b505097505050505050505060405180910390f35b60008060008060008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600201546000808673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600301546000808773ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600101549250925092509193909250565b60018181548110151561059a57fe5b90600052602060002090600602016000915090508060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169080600101549080600201549080600301549080600401908060050160009054906101000a900460ff16905086565b60028181548110151561061157fe5b90600052602060002090600602016000915090508060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169080600101549080600201549080600301549080600401908060050160009054906101000a900460ff16905086565b60c0604051908101604052803373ffffffffffffffffffffffffffffffffffffffff1681526020013481526020018460001916815260200183600019168152602001828152602001600015158152506000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506020820151816001015560408201518160020190600019169055606082015181600301906000191690556080820151816004019080519060200190610793929190610974565b5060a08201518160050160006101000a81548160ff021916908315150217905550905050600180548060010182816107cb91906109f4565b916000526020600020906006020160008060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002090919091506000820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff168160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550600182015481600101556002820154816002019060001916905560038201548160030190600019169055600482018160040190805460018160011615610100020316600290046108d6929190610a26565b506005820160009054906101000a900460ff168160050160006101000a81548160ff021916908315150217905550505050505050565b60006020528060005260406000206000915090508060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169080600101549080600201549080600301549080600401908060050160009054906101000a900460ff16905086565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106109b557805160ff19168380011785556109e3565b828001600101855582156109e3579182015b828111156109e25782518255916020019190600101906109c7565b5b5090506109f09190610aad565b5090565b815481835581811511610a2157600602816006028360005260206000209182019101610a209190610ad2565b5b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f10610a5f5780548555610a9c565b82800160010185558215610a9c57600052602060002091601f016020900482015b82811115610a9b578254825591600101919060010190610a80565b5b509050610aa99190610aad565b5090565b610acf91905b80821115610acb576000816000905550600101610ab3565b5090565b90565b610b5191905b80821115610b4d57600080820160006101000a81549073ffffffffffffffffffffffffffffffffffffffff0219169055600182016000905560028201600090556003820160009055600482016000610b309190610b54565b6005820160006101000a81549060ff021916905550600601610ad8565b5090565b90565b50805460018160011615610100020316600290046000825580601f10610b7a5750610b99565b601f016020900490600052602060002090810190610b989190610aad565b5b505600a165627a7a72305820ed436deead246cb4022d7e92c83d23b97349e598d06b4662699ba10814f1358c0029",
+  "deployedBytecode": "0x60606040526004361061006d576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063372525a5146100725780634f13ee44146100dd578063803b6965146101f9578063f112d9f414610315578063f818c58714610381575b600080fd5b341561007d57600080fd5b6100a9600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506104b3565b6040518084600019166000191681526020018360001916600019168152602001828152602001935050505060405180910390f35b34156100e857600080fd5b6100fe600480803590602001909190505061058b565b604051808773ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018681526020018560001916600019168152602001846000191660001916815260200180602001831515151581526020018281038252848181546001816001161561010002031660029004815260200191508054600181600116156101000203166002900480156101e55780601f106101ba576101008083540402835291602001916101e5565b820191906000526020600020905b8154815290600101906020018083116101c857829003601f168201915b505097505050505050505060405180910390f35b341561020457600080fd5b61021a6004808035906020019091905050610602565b604051808773ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018681526020018560001916600019168152602001846000191660001916815260200180602001831515151581526020018281038252848181546001816001161561010002031660029004815260200191508054600181600116156101000203166002900480156103015780601f106102d657610100808354040283529160200191610301565b820191906000526020600020905b8154815290600101906020018083116102e457829003601f168201915b505097505050505050505060405180910390f35b61037f6004808035600019169060200190919080356000191690602001909190803590602001908201803590602001908080601f01602080910402602001604051908101604052809392919081815260200183838082843782019150505050505091905050610679565b005b341561038c57600080fd5b6103b8600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190505061090c565b604051808773ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200186815260200185600019166000191681526020018460001916600019168152602001806020018315151515815260200182810382528481815460018160011615610100020316600290048152602001915080546001816001161561010002031660029004801561049f5780601f106104745761010080835404028352916020019161049f565b820191906000526020600020905b81548152906001019060200180831161048257829003601f168201915b505097505050505050505060405180910390f35b60008060008060008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600201546000808673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600301546000808773ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600101549250925092509193909250565b60018181548110151561059a57fe5b90600052602060002090600602016000915090508060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169080600101549080600201549080600301549080600401908060050160009054906101000a900460ff16905086565b60028181548110151561061157fe5b90600052602060002090600602016000915090508060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169080600101549080600201549080600301549080600401908060050160009054906101000a900460ff16905086565b60c0604051908101604052803373ffffffffffffffffffffffffffffffffffffffff1681526020013481526020018460001916815260200183600019168152602001828152602001600015158152506000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506020820151816001015560408201518160020190600019169055606082015181600301906000191690556080820151816004019080519060200190610793929190610974565b5060a08201518160050160006101000a81548160ff021916908315150217905550905050600180548060010182816107cb91906109f4565b916000526020600020906006020160008060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002090919091506000820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff168160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550600182015481600101556002820154816002019060001916905560038201548160030190600019169055600482018160040190805460018160011615610100020316600290046108d6929190610a26565b506005820160009054906101000a900460ff168160050160006101000a81548160ff021916908315150217905550505050505050565b60006020528060005260406000206000915090508060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff169080600101549080600201549080600301549080600401908060050160009054906101000a900460ff16905086565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106109b557805160ff19168380011785556109e3565b828001600101855582156109e3579182015b828111156109e25782518255916020019190600101906109c7565b5b5090506109f09190610aad565b5090565b815481835581811511610a2157600602816006028360005260206000209182019101610a209190610ad2565b5b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f10610a5f5780548555610a9c565b82800160010185558215610a9c57600052602060002091601f016020900482015b82811115610a9b578254825591600101919060010190610a80565b5b509050610aa99190610aad565b5090565b610acf91905b80821115610acb576000816000905550600101610ab3565b5090565b90565b610b5191905b80821115610b4d57600080820160006101000a81549073ffffffffffffffffffffffffffffffffffffffff0219169055600182016000905560028201600090556003820160009055600482016000610b309190610b54565b6005820160006101000a81549060ff021916905550600601610ad8565b5090565b90565b50805460018160011615610100020316600290046000825580601f10610b7a5750610b99565b601f016020900490600052602060002090810190610b989190610aad565b5b505600a165627a7a72305820ed436deead246cb4022d7e92c83d23b97349e598d06b4662699ba10814f1358c0029",
+  "sourceMap": "26:778:0:-;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "26:778:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;614:184;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;235:25;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;264:27;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;296:314;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;190:40;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;614:184;672:7;681;690:4;710:6;:20;717:12;710:20;;;;;;;;;;;;;;;:26;;;738:6;:20;745:12;738:20;;;;;;;;;;;;;;;:25;;;765:6;:20;772:12;765:20;;;;;;;;;;;;;;;:27;;;702:91;;;;;;614:184;;;;;:::o;235:25::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;264:27::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;296:314::-;406:156;;;;;;;;;429:10;406:156;;;;;;455:9;406:156;;;;479:6;406:156;;;;;;;499:5;406:156;;;;;;;524:11;406:156;;;;550:5;406:156;;;;;385:6;:18;392:10;385:18;;;;;;;;;;;;;;;:177;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;569:10;:35;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;585:6;:18;592:10;585:18;;;;;;;;;;;;;;;569:35;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;296:314;;;:::o;190:40::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;26:778::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o",
+  "source": "\npragma solidity ^0.4.2;\n\ncontract CacheGame {\n  \n  struct Cache {\n    address creator;\n    uint bounty;\n    bytes32 title;\n    bytes32 hint;\n    string passphrase;\n    bool found;\n  }\n  \n  mapping (address => Cache) public caches;\n\n  Cache[] public openCaches;\n  Cache[] public closedCaches;\n\n  function createCache(bytes32 _title, bytes32 _hint, string _passphrase) payable \n  {\n    caches[msg.sender] = Cache({\n      creator: msg.sender,\n      bounty: msg.value,\n      title: _title,\n      hint: _hint,\n      passphrase: _passphrase,\n      found: false\n    });\n\n    openCaches.push(caches[msg.sender]);\n\n  }\n\n  function viewCache(address cacheAddress) constant returns(bytes32, bytes32, uint) {\n    return (caches[cacheAddress].title, caches[cacheAddress].hint, caches[cacheAddress].bounty);\n  }\n\n\n\n\n}",
+  "sourcePath": "/Users/emessess/FSA/Senior/Stackathon/Notes/contracts/CacheGame.sol",
+  "ast": {
+    "attributes": {
+      "absolutePath": "/Users/emessess/FSA/Senior/Stackathon/Notes/contracts/CacheGame.sol",
+      "exportedSymbols": {
+        "CacheGame": [
+          86
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.4",
+            ".2"
+          ]
+        },
+        "id": 1,
+        "name": "PragmaDirective",
+        "src": "1:23:0"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            86
+          ],
+          "name": "CacheGame",
+          "scope": 87
+        },
+        "children": [
+          {
+            "attributes": {
+              "canonicalName": "CacheGame.Cache",
+              "name": "Cache",
+              "scope": 86,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "creator",
+                  "scope": 14,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "address",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "type": "address"
+                    },
+                    "id": 2,
+                    "name": "ElementaryTypeName",
+                    "src": "71:7:0"
+                  }
+                ],
+                "id": 3,
+                "name": "VariableDeclaration",
+                "src": "71:15:0"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "bounty",
+                  "scope": 14,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint",
+                      "type": "uint256"
+                    },
+                    "id": 4,
+                    "name": "ElementaryTypeName",
+                    "src": "92:4:0"
+                  }
+                ],
+                "id": 5,
+                "name": "VariableDeclaration",
+                "src": "92:11:0"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "title",
+                  "scope": 14,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "bytes32",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "bytes32",
+                      "type": "bytes32"
+                    },
+                    "id": 6,
+                    "name": "ElementaryTypeName",
+                    "src": "109:7:0"
+                  }
+                ],
+                "id": 7,
+                "name": "VariableDeclaration",
+                "src": "109:13:0"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "hint",
+                  "scope": 14,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "bytes32",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "bytes32",
+                      "type": "bytes32"
+                    },
+                    "id": 8,
+                    "name": "ElementaryTypeName",
+                    "src": "128:7:0"
+                  }
+                ],
+                "id": 9,
+                "name": "VariableDeclaration",
+                "src": "128:12:0"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "passphrase",
+                  "scope": 14,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "string storage pointer",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string storage pointer"
+                    },
+                    "id": 10,
+                    "name": "ElementaryTypeName",
+                    "src": "146:6:0"
+                  }
+                ],
+                "id": 11,
+                "name": "VariableDeclaration",
+                "src": "146:17:0"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "found",
+                  "scope": 14,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "bool",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "bool",
+                      "type": "bool"
+                    },
+                    "id": 12,
+                    "name": "ElementaryTypeName",
+                    "src": "169:4:0"
+                  }
+                ],
+                "id": 13,
+                "name": "VariableDeclaration",
+                "src": "169:10:0"
+              }
+            ],
+            "id": 14,
+            "name": "StructDefinition",
+            "src": "52:132:0"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "caches",
+              "scope": 86,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "mapping(address => struct CacheGame.Cache storage ref)",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "type": "mapping(address => struct CacheGame.Cache storage ref)"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "type": "address"
+                    },
+                    "id": 15,
+                    "name": "ElementaryTypeName",
+                    "src": "199:7:0"
+                  },
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "Cache",
+                      "referencedDeclaration": 14,
+                      "type": "struct CacheGame.Cache storage pointer"
+                    },
+                    "id": 16,
+                    "name": "UserDefinedTypeName",
+                    "src": "210:5:0"
+                  }
+                ],
+                "id": 17,
+                "name": "Mapping",
+                "src": "190:26:0"
+              }
+            ],
+            "id": 18,
+            "name": "VariableDeclaration",
+            "src": "190:40:0"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "openCaches",
+              "scope": 86,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "struct CacheGame.Cache storage ref[] storage ref",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "length": null,
+                  "type": "struct CacheGame.Cache storage ref[] storage pointer"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "Cache",
+                      "referencedDeclaration": 14,
+                      "type": "struct CacheGame.Cache storage pointer"
+                    },
+                    "id": 19,
+                    "name": "UserDefinedTypeName",
+                    "src": "235:5:0"
+                  }
+                ],
+                "id": 20,
+                "name": "ArrayTypeName",
+                "src": "235:7:0"
+              }
+            ],
+            "id": 21,
+            "name": "VariableDeclaration",
+            "src": "235:25:0"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "closedCaches",
+              "scope": 86,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "struct CacheGame.Cache storage ref[] storage ref",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "length": null,
+                  "type": "struct CacheGame.Cache storage ref[] storage pointer"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "Cache",
+                      "referencedDeclaration": 14,
+                      "type": "struct CacheGame.Cache storage pointer"
+                    },
+                    "id": 22,
+                    "name": "UserDefinedTypeName",
+                    "src": "264:5:0"
+                  }
+                ],
+                "id": 23,
+                "name": "ArrayTypeName",
+                "src": "264:7:0"
+              }
+            ],
+            "id": 24,
+            "name": "VariableDeclaration",
+            "src": "264:27:0"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "createCache",
+              "payable": true,
+              "scope": 86,
+              "stateMutability": "payable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_title",
+                      "scope": 59,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 25,
+                        "name": "ElementaryTypeName",
+                        "src": "317:7:0"
+                      }
+                    ],
+                    "id": 26,
+                    "name": "VariableDeclaration",
+                    "src": "317:14:0"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_hint",
+                      "scope": 59,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 27,
+                        "name": "ElementaryTypeName",
+                        "src": "333:7:0"
+                      }
+                    ],
+                    "id": 28,
+                    "name": "VariableDeclaration",
+                    "src": "333:13:0"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_passphrase",
+                      "scope": 59,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 29,
+                        "name": "ElementaryTypeName",
+                        "src": "348:6:0"
+                      }
+                    ],
+                    "id": 30,
+                    "name": "VariableDeclaration",
+                    "src": "348:18:0"
+                  }
+                ],
+                "id": 31,
+                "name": "ParameterList",
+                "src": "316:51:0"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 32,
+                "name": "ParameterList",
+                "src": "379:0:0"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "struct CacheGame.Cache storage ref"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "type": "struct CacheGame.Cache storage ref"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 18,
+                                  "type": "mapping(address => struct CacheGame.Cache storage ref)",
+                                  "value": "caches"
+                                },
+                                "id": 33,
+                                "name": "Identifier",
+                                "src": "385:6:0"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "sender",
+                                  "referencedDeclaration": null,
+                                  "type": "address"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 98,
+                                      "type": "msg",
+                                      "value": "msg"
+                                    },
+                                    "id": 34,
+                                    "name": "Identifier",
+                                    "src": "392:3:0"
+                                  }
+                                ],
+                                "id": 35,
+                                "name": "MemberAccess",
+                                "src": "392:10:0"
+                              }
+                            ],
+                            "id": 36,
+                            "name": "IndexAccess",
+                            "src": "385:18:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "isStructConstructorCall": true,
+                              "lValueRequested": false,
+                              "names": [
+                                "creator",
+                                "bounty",
+                                "title",
+                                "hint",
+                                "passphrase",
+                                "found"
+                              ],
+                              "type": "struct CacheGame.Cache memory",
+                              "type_conversion": false
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 14,
+                                  "type": "type(struct CacheGame.Cache storage pointer)",
+                                  "value": "Cache"
+                                },
+                                "id": 37,
+                                "name": "Identifier",
+                                "src": "406:5:0"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "sender",
+                                  "referencedDeclaration": null,
+                                  "type": "address"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 98,
+                                      "type": "msg",
+                                      "value": "msg"
+                                    },
+                                    "id": 38,
+                                    "name": "Identifier",
+                                    "src": "429:3:0"
+                                  }
+                                ],
+                                "id": 39,
+                                "name": "MemberAccess",
+                                "src": "429:10:0"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "value",
+                                  "referencedDeclaration": null,
+                                  "type": "uint256"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 98,
+                                      "type": "msg",
+                                      "value": "msg"
+                                    },
+                                    "id": 40,
+                                    "name": "Identifier",
+                                    "src": "455:3:0"
+                                  }
+                                ],
+                                "id": 41,
+                                "name": "MemberAccess",
+                                "src": "455:9:0"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 26,
+                                  "type": "bytes32",
+                                  "value": "_title"
+                                },
+                                "id": 42,
+                                "name": "Identifier",
+                                "src": "479:6:0"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 28,
+                                  "type": "bytes32",
+                                  "value": "_hint"
+                                },
+                                "id": 43,
+                                "name": "Identifier",
+                                "src": "499:5:0"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 30,
+                                  "type": "string memory",
+                                  "value": "_passphrase"
+                                },
+                                "id": 44,
+                                "name": "Identifier",
+                                "src": "524:11:0"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "hexvalue": "66616c7365",
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "subdenomination": null,
+                                  "token": "bool",
+                                  "type": "bool",
+                                  "value": "false"
+                                },
+                                "id": 45,
+                                "name": "Literal",
+                                "src": "550:5:0"
+                              }
+                            ],
+                            "id": 46,
+                            "name": "FunctionCall",
+                            "src": "406:156:0"
+                          }
+                        ],
+                        "id": 47,
+                        "name": "Assignment",
+                        "src": "385:177:0"
+                      }
+                    ],
+                    "id": 48,
+                    "name": "ExpressionStatement",
+                    "src": "385:177:0"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "uint256",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_struct$_Cache_$14_storage",
+                                  "typeString": "struct CacheGame.Cache storage ref"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "push",
+                              "referencedDeclaration": null,
+                              "type": "function (struct CacheGame.Cache storage ref) returns (uint256)"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 21,
+                                  "type": "struct CacheGame.Cache storage ref[] storage ref",
+                                  "value": "openCaches"
+                                },
+                                "id": 49,
+                                "name": "Identifier",
+                                "src": "569:10:0"
+                              }
+                            ],
+                            "id": 51,
+                            "name": "MemberAccess",
+                            "src": "569:15:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "type": "struct CacheGame.Cache storage ref"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 18,
+                                  "type": "mapping(address => struct CacheGame.Cache storage ref)",
+                                  "value": "caches"
+                                },
+                                "id": 52,
+                                "name": "Identifier",
+                                "src": "585:6:0"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "sender",
+                                  "referencedDeclaration": null,
+                                  "type": "address"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 98,
+                                      "type": "msg",
+                                      "value": "msg"
+                                    },
+                                    "id": 53,
+                                    "name": "Identifier",
+                                    "src": "592:3:0"
+                                  }
+                                ],
+                                "id": 54,
+                                "name": "MemberAccess",
+                                "src": "592:10:0"
+                              }
+                            ],
+                            "id": 55,
+                            "name": "IndexAccess",
+                            "src": "585:18:0"
+                          }
+                        ],
+                        "id": 56,
+                        "name": "FunctionCall",
+                        "src": "569:35:0"
+                      }
+                    ],
+                    "id": 57,
+                    "name": "ExpressionStatement",
+                    "src": "569:35:0"
+                  }
+                ],
+                "id": 58,
+                "name": "Block",
+                "src": "379:231:0"
+              }
+            ],
+            "id": 59,
+            "name": "FunctionDefinition",
+            "src": "296:314:0"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "viewCache",
+              "payable": false,
+              "scope": 86,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "cacheAddress",
+                      "scope": 85,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 60,
+                        "name": "ElementaryTypeName",
+                        "src": "633:7:0"
+                      }
+                    ],
+                    "id": 61,
+                    "name": "VariableDeclaration",
+                    "src": "633:20:0"
+                  }
+                ],
+                "id": 62,
+                "name": "ParameterList",
+                "src": "632:22:0"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 85,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 63,
+                        "name": "ElementaryTypeName",
+                        "src": "672:7:0"
+                      }
+                    ],
+                    "id": 64,
+                    "name": "VariableDeclaration",
+                    "src": "672:7:0"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 85,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 65,
+                        "name": "ElementaryTypeName",
+                        "src": "681:7:0"
+                      }
+                    ],
+                    "id": 66,
+                    "name": "VariableDeclaration",
+                    "src": "681:7:0"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 85,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 67,
+                        "name": "ElementaryTypeName",
+                        "src": "690:4:0"
+                      }
+                    ],
+                    "id": 68,
+                    "name": "VariableDeclaration",
+                    "src": "690:4:0"
+                  }
+                ],
+                "id": 69,
+                "name": "ParameterList",
+                "src": "671:24:0"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 69
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isInlineArray": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "type": "tuple(bytes32,bytes32,uint256)"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "title",
+                              "referencedDeclaration": 7,
+                              "type": "bytes32"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "type": "struct CacheGame.Cache storage ref"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 18,
+                                      "type": "mapping(address => struct CacheGame.Cache storage ref)",
+                                      "value": "caches"
+                                    },
+                                    "id": 70,
+                                    "name": "Identifier",
+                                    "src": "710:6:0"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 61,
+                                      "type": "address",
+                                      "value": "cacheAddress"
+                                    },
+                                    "id": 71,
+                                    "name": "Identifier",
+                                    "src": "717:12:0"
+                                  }
+                                ],
+                                "id": 72,
+                                "name": "IndexAccess",
+                                "src": "710:20:0"
+                              }
+                            ],
+                            "id": 73,
+                            "name": "MemberAccess",
+                            "src": "710:26:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "hint",
+                              "referencedDeclaration": 9,
+                              "type": "bytes32"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "type": "struct CacheGame.Cache storage ref"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 18,
+                                      "type": "mapping(address => struct CacheGame.Cache storage ref)",
+                                      "value": "caches"
+                                    },
+                                    "id": 74,
+                                    "name": "Identifier",
+                                    "src": "738:6:0"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 61,
+                                      "type": "address",
+                                      "value": "cacheAddress"
+                                    },
+                                    "id": 75,
+                                    "name": "Identifier",
+                                    "src": "745:12:0"
+                                  }
+                                ],
+                                "id": 76,
+                                "name": "IndexAccess",
+                                "src": "738:20:0"
+                              }
+                            ],
+                            "id": 77,
+                            "name": "MemberAccess",
+                            "src": "738:25:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "bounty",
+                              "referencedDeclaration": 5,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "type": "struct CacheGame.Cache storage ref"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 18,
+                                      "type": "mapping(address => struct CacheGame.Cache storage ref)",
+                                      "value": "caches"
+                                    },
+                                    "id": 78,
+                                    "name": "Identifier",
+                                    "src": "765:6:0"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 61,
+                                      "type": "address",
+                                      "value": "cacheAddress"
+                                    },
+                                    "id": 79,
+                                    "name": "Identifier",
+                                    "src": "772:12:0"
+                                  }
+                                ],
+                                "id": 80,
+                                "name": "IndexAccess",
+                                "src": "765:20:0"
+                              }
+                            ],
+                            "id": 81,
+                            "name": "MemberAccess",
+                            "src": "765:27:0"
+                          }
+                        ],
+                        "id": 82,
+                        "name": "TupleExpression",
+                        "src": "709:84:0"
+                      }
+                    ],
+                    "id": 83,
+                    "name": "Return",
+                    "src": "702:91:0"
+                  }
+                ],
+                "id": 84,
+                "name": "Block",
+                "src": "696:102:0"
+              }
+            ],
+            "id": 85,
+            "name": "FunctionDefinition",
+            "src": "614:184:0"
+          }
+        ],
+        "id": 86,
+        "name": "ContractDefinition",
+        "src": "26:778:0"
+      }
+    ],
+    "id": 87,
+    "name": "SourceUnit",
+    "src": "1:803:0"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.18+commit.9cf6e910.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "1.0.1",
+  "updatedAt": "2017-11-12T17:26:43.120Z"
+}
