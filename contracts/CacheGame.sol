@@ -34,6 +34,12 @@ contract CacheGame {
 
   }
 
+//view an active cache
+
+  function viewCache(address cacheAddress) constant returns(bytes32, bytes32, uint) {
+    return (caches[cacheAddress].title, caches[cacheAddress].hint, caches[cacheAddress].bounty);
+  }
+
 //solve an existing cache
 
   function solveCache(address cacheAddress, bytes32 passPhrase) public 
@@ -53,11 +59,6 @@ contract CacheGame {
 
   }
 
-//view an active cache
-
-  function viewCache(address cacheAddress) public constant returns(bytes32, bytes32, uint) {
-    return (caches[cacheAddress].title, caches[cacheAddress].hint, caches[cacheAddress].bounty);
-  }
 
 
 
