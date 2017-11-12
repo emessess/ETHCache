@@ -25,8 +25,6 @@ contract('CacheGame', function(accounts) {
     CacheGame.deployed().then(function(instance){
       cacheGameInstance = instance;
       return cacheGameInstance.solveCache(accounts[0], 'this is the passphrase', {from: accounts[1]})
-    }).then(function(result) {
-      console.log(result);
     })
   }) 
 });

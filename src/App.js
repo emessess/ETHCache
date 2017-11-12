@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import CapsuleContract from '../build/contracts/Capsule.json'
+import CacheGame from '../build/contracts/CacheGame.json'
 import getWeb3 from './utils/getWeb3'
 
 import './css/oswald.css'
@@ -8,7 +8,7 @@ import './css/pure-min.css'
 import './App.css'
 
 const contract = require('truffle-contract')
-const capsule = contract(CapsuleContract);
+const cacheGame = contract(CacheGame);
 
 class App extends Component {
   constructor(props) {
@@ -18,9 +18,8 @@ class App extends Component {
       storageValue: '',
       accounts: [],
       web3: null,
-      capsuleInstance: null,
+      cacheGameInstance: null,
       newMsgInput: '',
-      message: ''
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -48,21 +47,21 @@ class App extends Component {
 
   instantiateContract() {
 
-    let capsuleInstance;
+    let cacheGameInstance;
 
-    capsule.setProvider(this.state.web3.currentProvider);
+    cacheGame.setProvider(this.state.web3.currentProvider);
     // Get accounts.
     this.state.web3.eth.getAccounts((error, accounts) => {
-      capsule.deployed().then((instance) => {
-        capsuleInstance = instance;
-        this.setState({ accounts, capsuleInstance })
+      cacheGame.deployed().then((instance) => {
+        cacheGameInstance = instance;
+        this.setState({ accounts, cacheGameInstance })
       }).then((result) => {
         // Get the value from the contract to prove it worked.
         console.log(result);
-        return this.state.capsuleInstance.getMessage.call(accounts[0])
+        return this.state.cacheGameInstance.viewCache.call(accounts[0])
       }).then((result) => {
         // Update state with the result.
-        let stringResult = this.state.web3.toAscii(result);
+        let stringResult = this.state.web3.toAscii(result[0]);
         return this.setState({ storageValue: stringResult })
       })
     })
@@ -74,7 +73,7 @@ class App extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    capsule.deployed().then(instance => {
+    cacheGame.deployed().then(instance => {
       return instance.setMessage(this.state.newMsgInput, {from: this.state.accounts[0]})
     }).then(transaction => {
       //transaction object is here now, could use to render transaction reciept number
@@ -86,7 +85,7 @@ class App extends Component {
   }
 
   checkChain() {
-    capsule.deployed().then(instance => {
+    cacheGame.deployed().then(instance => {
       return instance.getMessage.call(this.state.accounts[0])
     }).then(result => {
       let stringResult = this.state.web3.toAscii(result);
