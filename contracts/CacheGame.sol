@@ -36,7 +36,7 @@ contract CacheGame {
 
 //solve an existing cache
 
-  function solveCache(address cacheAddress, string passPhrase) public 
+  function solveCache(address cacheAddress, bytes32 passPhrase) public 
   {
     //check validity
     require(keccak256(caches[cacheAddress].passphrase) == keccak256(passPhrase));

@@ -2,6 +2,8 @@ const CacheGame = artifacts.require("./CacheGame.sol");
 
 contract('CacheGame', function(accounts) {
 
+  let cacheGameInstance;
+
   it("...should create a cache with given parameters", function() {
     return CacheGame.deployed().then(function(instance) {
       cacheGameInstance = instance;
@@ -19,5 +21,13 @@ contract('CacheGame', function(accounts) {
     });
   });
 
+  it("should allow players to solve a cache with the address and correct passphrase", function() {
+    CacheGame.deployed().then(function(instance){
+      cacheGameInstance = instance;
+      return cacheGameInstance.solveCache(accounts[0], 'this is the passphrase', {from: accounts[1]})
+    }).then(function(result) {
+      console.log(result);
+    })
+  }) 
 });
 
