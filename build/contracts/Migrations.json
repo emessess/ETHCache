@@ -819,7 +819,7 @@
     "4447": {
       "events": {},
       "links": {},
-      "address": "0xce728368ee4c3fb7da0ac5f4b1738905bbb0d1f4"
+      "address": "0x8cdaf0cd259887258bc13a92c0a6da92698644c0"
     },
     "1510545045143": {
       "events": {},
@@ -828,5 +828,5 @@
     }
   },
   "schemaVersion": "1.0.1",
-  "updatedAt": "2017-11-13T05:04:03.780Z"
+  "updatedAt": "2017-11-13T15:01:21.970Z"
 }
