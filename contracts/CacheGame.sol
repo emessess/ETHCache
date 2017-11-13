@@ -40,23 +40,23 @@ contract CacheGame {
     return caches[msg.sender].title;
   }
 
-//solve an existing cache
+// solve an existing cache
 
-  // function solveCache(address solvedAddress, bytes32 passPhrase) returns(bool) {
-  //   //check validity
-  //   require(keccak256(caches[solvedAddress].passphrase) == keccak256(passPhrase));
+  function solveCache(address solvedAddress, bytes32 passPhrase) returns(bool) {
+    //check validity
+    require(keccak256(caches[solvedAddress].passphrase) == keccak256(passPhrase));
     
-  //   //declare bounty
-  //   uint bountyAmount = caches[solvedAddress].bounty;
+    //declare bounty
+    uint bountyAmount = caches[solvedAddress].bounty;
     
-  //   //set cache to found and zero out bounty
-  //   caches[solvedAddress].found = true;
-  //   caches[solvedAddress].bounty = 0;
+    //set cache to found and zero out bounty
+    caches[solvedAddress].found = true;
+    caches[solvedAddress].bounty = 0;
 
-  //   //pay bounty
-  //   msg.sender.transfer(bountyAmount);
+    //pay bounty
+    msg.sender.transfer(bountyAmount);
 
-  // }
+  }
 
 
 
