@@ -18,7 +18,7 @@ class App extends Component {
       storageValue: '',
       accounts: [],
       web3: null,
-      cacheGameInstance: null,
+      meta: null,
       newMsgInput: '',
     }
 
@@ -54,16 +54,21 @@ class App extends Component {
     this.state.web3.eth.getAccounts((error, accounts) => {
       cacheGame.deployed().then((instance) => {
         cacheGameInstance = instance;
-        this.setState({ accounts, cacheGameInstance })
+        this.setState({ accounts, meta: cacheGameInstance })
+        return this.state.meta.createCache(
+          'first cache',
+          'it is somewhere',
+          'this is the passphrase', 
+          {from: accounts[0], value: 1, gas: 500000});
       }).then((result) => {
         // Get the value from the contract to prove it worked.
         console.log(result);
-        return this.state.cacheGameInstance.viewCache.call(accounts[0])
+        return this.state.meta.viewCache.call(accounts[0])
       }).then((result) => {
         // Update state with the result.
-        let stringResult = this.state.web3.toAscii(result[0]);
-        return this.setState({ storageValue: stringResult })
-      })
+        // let stringResult = this.state.web3.toAscii(result[0]);
+        return this.setState({ storageValue: result })
+      }).catch()
     })
   }
 

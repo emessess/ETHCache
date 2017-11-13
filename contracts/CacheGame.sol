@@ -12,7 +12,7 @@ contract CacheGame {
     bool found;
   }
   
-  mapping (address => Cache) public caches;
+  mapping (address => Cache) caches;
 
   Cache[] public openCaches;
   Cache[] public closedCaches;
@@ -30,37 +30,31 @@ contract CacheGame {
       found: false
     });
 
-    openCaches.push(caches[msg.sender]);
-
   }
 
 //view an active cache
 
-  function viewCache(address cacheAddress) constant returns(bytes32, bytes32, uint) {
-    return (caches[cacheAddress].title, caches[cacheAddress].hint, caches[cacheAddress].bounty);
-  }
-
-  function getPool() constant returns (uint) {
-    return this.balance;
+  function viewCache(address cacheAddress) public constant returns(bytes32, bytes32, uint) {
+    // return (caches[cacheAddress].title, caches[cacheAddress].hint, caches[cacheAddress].bounty);
   }
 
 //solve an existing cache
 
-  function solveCache(address solvedAddress, bytes32 passPhrase) returns(bool) {
-    //check validity
-    require(keccak256(caches[solvedAddress].passphrase) == keccak256(passPhrase));
+  // function solveCache(address solvedAddress, bytes32 passPhrase) returns(bool) {
+  //   //check validity
+  //   require(keccak256(caches[solvedAddress].passphrase) == keccak256(passPhrase));
     
-    //declare bounty
-    uint bountyAmount = caches[solvedAddress].bounty;
+  //   //declare bounty
+  //   uint bountyAmount = caches[solvedAddress].bounty;
     
-    //set cache to found and zero out bounty
-    caches[solvedAddress].found = true;
-    caches[solvedAddress].bounty = 0;
+  //   //set cache to found and zero out bounty
+  //   caches[solvedAddress].found = true;
+  //   caches[solvedAddress].bounty = 0;
 
-    //pay bounty
-    msg.sender.transfer(bountyAmount);
+  //   //pay bounty
+  //   msg.sender.transfer(bountyAmount);
 
-  }
+  // }
 
 
 
