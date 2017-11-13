@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import CacheGame from '../build/contracts/CacheGame.json'
+import Cache from '../build/contracts/Cache.json'
 import getWeb3 from './utils/getWeb3'
 
 import './css/oswald.css'
@@ -8,7 +8,7 @@ import './css/pure-min.css'
 import './App.css'
 
 const contract = require('truffle-contract')
-const cacheGame = contract(CacheGame);
+const cacheGame = contract(Cache);
 
 class App extends Component {
   constructor(props) {
@@ -16,6 +16,7 @@ class App extends Component {
 
     this.state = {
       accounts: [],
+      bounty: 0,
       web3: null,
       meta: null,
       newMsgInput: '',
@@ -46,26 +47,21 @@ class App extends Component {
 
   instantiateContract() {
 
-    let meta;
+    var meta;
 
     cacheGame.setProvider(this.state.web3.currentProvider);
     // Get accounts.
     this.state.web3.eth.getAccounts((error, accounts) => {
-      cacheGame.deployed().then((instance) => {
+      cacheGame.deployed(123, accounts[0]).then((instance) => {
         meta = instance;
-        this.setState({ accounts })
-        return meta.createCache(
-          'first cache',
-          'it is somewhere',
-          'this is the passphrase', 
-          {from: accounts[0], value: 1, gas: 500000});
+        this.setState({ accounts, meta })
       }).then((result) => {
         // Get the value from the contract to prove it worked.
-        return meta.viewCache(0);
+        return this.state.meta.checkBounty.call();
       }).then((result) => {
         // Update state with the result.
         // let stringResult = this.state.web3.toAscii(result[0]);
-        return this.setState({ storageValue: result })
+        return this.setState({ bounty: result.c[0]})
       }).catch()
     })
   }
@@ -76,9 +72,8 @@ class App extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    cacheGame.deployed().then(instance => {
-      return instance.setMessage(this.state.newMsgInput, {from: this.state.accounts[0]})
-    }).then(transaction => {
+    this.state.meta.addBounty({from: this.state.accounts[0], value: +event.target.value})
+    .then(transaction => {
       //transaction object is here now, could use to render transaction reciept number
       console.log(transaction);
       this.setState({newMsgInput: ''});
@@ -88,11 +83,9 @@ class App extends Component {
   }
 
   checkChain() {
-    cacheGame.deployed().then(instance => {
-      return instance.getMessage.call(this.state.accounts[0])
-    }).then(result => {
-      let stringResult = this.state.web3.toAscii(result);
-      return this.setState({ storageValue: stringResult})
+    this.state.checkBounty.call()
+    .then(result => {
+      return this.setState({ bounty: result.c[0]})
     })
   }
 
@@ -110,13 +103,13 @@ class App extends Component {
             </div>
             <div className="pure-u-1-1">
               <p>Cache Name:</p>
-              <p>Cache Bounty:</p>
+              <p>Cache Bounty: {this.state.bounty}</p>
               <p>Cache Hit:</p>
               <form onSubmit={this.handleSubmit}>
-                <input type="text" maxLength="32" value={this.state.newMsgInput} onChange={this.handleChange}/>
+                <input type="text" placeholder="Add bounty..." maxLength="32" value={this.state.newMsgInput} onChange={this.handleChange}/>
                 <input type="submit" value="Submit" />
               </form>
-              {/* <button onClick={this.checkChain}>Check Chain</button> */}
+              <button onClick={this.checkChain}>Check Chain</button>
             </div>
           </div>
         </main>

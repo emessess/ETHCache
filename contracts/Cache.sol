@@ -9,7 +9,7 @@ contract Cache {
 
     // Current state of the auction.
     uint public bounty;
-    hash passphrase;
+    uint passphrase;
 
     // Set to true at the end, disallows any change
     bool ended;
@@ -18,21 +18,21 @@ contract Cache {
     event CacheFound(address winnner);
 
     function Cache (
-        bytes32 _passphrase,
+        uint _passphrase,
         address _placer
     ) {
         placer = _placer;
         bounty = 0;
-        passphrase = keccak256(_passphrase);
+        passphrase = _passphrase;
         
     }
 
     function addBounty() payable {
        require(ended == false);
-       bounty = msg.value;
+       bounty = bounty + msg.value;
     }
 
-    function viewCache() constant returns (uint) {
+    function checkBounty() constant returns (uint) {
         return bounty;
     }
 
@@ -40,13 +40,15 @@ contract Cache {
     /// together with this transaction.
     /// The value will only be refunded if the
     /// auction is not won.
-    function findCache(bytes32 _guess) {
+    function findCache(uint _code) returns(uint) {
         // If the bid is not higher, send the
         // money back.
-        require(keccak256(_guess) == keccak256(passphrase));
-
+      if (_code == passphrase) {
         finder = msg.sender;
         cacheEnd();
+        return bounty;
+      }
+        return 0;
     }
 
 
@@ -73,7 +75,7 @@ contract Cache {
         CacheFound(finder);
 
         // 3. Interaction
-        if (bounty > 20000) {
+        if (bounty > 1) {
           finder.transfer(bounty);
         }
     }
