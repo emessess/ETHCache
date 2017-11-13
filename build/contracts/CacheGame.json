@@ -2,37 +2,6 @@
   "contractName": "CacheGame",
   "abi": [
     {
-      "constant": true,
-      "inputs": [
-        {
-          "name": "cacheAddress",
-          "type": "address"
-        },
-        {
-          "name": "passPhrase",
-          "type": "bytes32"
-        }
-      ],
-      "name": "viewCache",
-      "outputs": [
-        {
-          "name": "",
-          "type": "bytes32"
-        },
-        {
-          "name": "",
-          "type": "bytes32"
-        },
-        {
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
       "constant": false,
       "inputs": [
         {
@@ -49,22 +18,28 @@
         }
       ],
       "name": "createCache",
-      "outputs": [
+      "outputs": [],
+      "payable": true,
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
         {
-          "name": "",
-          "type": "bool"
-        },
-        {
-          "name": "",
-          "type": "bytes32"
-        },
-        {
-          "name": "",
+          "name": "index",
           "type": "uint256"
         }
       ],
-      "payable": true,
-      "stateMutability": "payable",
+      "name": "viewCache",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
       "type": "function"
     },
     {
@@ -73,14 +48,6 @@
         {
           "name": "",
           "type": "uint256"
-        },
-        {
-          "name": "_hint",
-          "type": "bytes32"
-        },
-        {
-          "name": "_passphrase",
-          "type": "bytes32"
         }
       ],
       "name": "openCaches",
@@ -120,134 +87,9 @@
         {
           "name": "",
           "type": "uint256"
-        },
-        {
-          "name": "_hint",
-          "type": "bytes32"
-        },
-        {
-          "name": "_passphrase",
-          "type": "bytes32"
         }
       ],
       "name": "closedCaches",
-      "outputs": [
-        {
-          "name": "creator",
-          "type": "address"
-        },
-        {
-          "name": "bounty",
-          "type": "uint256"
-        },
-        {
-          "name": "title",
-          "type": "bytes32"
-        },
-        {
-          "name": "hint",
-          "type": "bytes32"
-        },
-        {
-          "name": "passphrase",
-          "type": "bytes32"
-        },
-        {
-          "name": "found",
-          "type": "bool"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [
-        {
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "name": "caches",
-      "outputs": [
-        {
-          "name": "creator",
-          "type": "address"
-        },
-        {
-          "name": "bounty",
-          "type": "uint256"
-        },
-        {
-          "name": "title",
-          "type": "bytes32"
-        },
-        {
-          "name": "hint",
-          "type": "bytes32"
-        },
-        {
-          "name": "passphrase",
-          "type": "bytes32"
-        },
-        {
-          "name": "found",
-          "type": "bool"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [
-        {
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "name": "closedCaches",
-      "outputs": [
-        {
-          "name": "creator",
-          "type": "address"
-        },
-        {
-          "name": "bounty",
-          "type": "uint256"
-        },
-        {
-          "name": "title",
-          "type": "bytes32"
-        },
-        {
-          "name": "hint",
-          "type": "bytes32"
-        },
-        {
-          "name": "passphrase",
-          "type": "bytes32"
-        },
-        {
-          "name": "found",
-          "type": "bool"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [
-        {
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "name": "caches",
       "outputs": [
         {
           "name": "creator",
@@ -279,18 +121,18 @@
       "type": "function"
     }
   ],
-  "bytecode": "0x6060604052341561000f57600080fd5b6104cb8061001e6000396000f300606060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063372525a514610067578063416960ff146100d25780634f13ee4414610108578063803b6965146101aa575b600080fd5b341561007257600080fd5b61009e600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190505061024c565b6040518084600019166000191681526020018360001916600019168152602001828152602001935050505060405180910390f35b6101066004808035600019169060200190919080356000191690602001909190803560001916906020019091905050610258565b005b341561011357600080fd5b61012960048080359060200190919050506103af565b604051808773ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200186815260200185600019166000191681526020018460001916600019168152602001836000191660001916815260200182151515158152602001965050505050505060405180910390f35b34156101b557600080fd5b6101cb6004808035906020019091905050610427565b604051808773ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200186815260200185600019166000191681526020018460001916600019168152602001836000191660001916815260200182151515158152602001965050505050505060405180910390f35b60008060009193909250565b60c0604051908101604052803373ffffffffffffffffffffffffffffffffffffffff1681526020013481526020018460001916815260200183600019168152602001826040518082600019166000191681526020019150506040518091039020600019168152602001600015158152506000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506020820151816001015560408201518160020190600019169055606082015181600301906000191690556080820151816004019060001916905560a08201518160050160006101000a81548160ff021916908315150217905550905050505050565b6001818154811015156103be57fe5b90600052602060002090600602016000915090508060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16908060010154908060020154908060030154908060040154908060050160009054906101000a900460ff16905086565b60028181548110151561043657fe5b90600052602060002090600602016000915090508060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16908060010154908060020154908060030154908060040154908060050160009054906101000a900460ff169050865600a165627a7a72305820da3d7e75bef3a778b133c96c2f11d1725ce61591b6beea7f29f0dc0b9dd9fd300029",
-  "deployedBytecode": "0x606060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063372525a514610067578063416960ff146100d25780634f13ee4414610108578063803b6965146101aa575b600080fd5b341561007257600080fd5b61009e600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190505061024c565b6040518084600019166000191681526020018360001916600019168152602001828152602001935050505060405180910390f35b6101066004808035600019169060200190919080356000191690602001909190803560001916906020019091905050610258565b005b341561011357600080fd5b61012960048080359060200190919050506103af565b604051808773ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200186815260200185600019166000191681526020018460001916600019168152602001836000191660001916815260200182151515158152602001965050505050505060405180910390f35b34156101b557600080fd5b6101cb6004808035906020019091905050610427565b604051808773ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200186815260200185600019166000191681526020018460001916600019168152602001836000191660001916815260200182151515158152602001965050505050505060405180910390f35b60008060009193909250565b60c0604051908101604052803373ffffffffffffffffffffffffffffffffffffffff1681526020013481526020018460001916815260200183600019168152602001826040518082600019166000191681526020019150506040518091039020600019168152602001600015158152506000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506020820151816001015560408201518160020190600019169055606082015181600301906000191690556080820151816004019060001916905560a08201518160050160006101000a81548160ff021916908315150217905550905050505050565b6001818154811015156103be57fe5b90600052602060002090600602016000915090508060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16908060010154908060020154908060030154908060040154908060050160009054906101000a900460ff16905086565b60028181548110151561043657fe5b90600052602060002090600602016000915090508060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16908060010154908060020154908060030154908060040154908060050160009054906101000a900460ff169050865600a165627a7a72305820da3d7e75bef3a778b133c96c2f11d1725ce61591b6beea7f29f0dc0b9dd9fd300029",
-  "sourceMap": "26:1322:0:-;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "26:1322:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;630:194;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;311:291;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;229:25;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;258:27;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;630:194;695:7;704;713:4;630:194;;;;;:::o;311:291::-;429:167;;;;;;;;;452:10;429:167;;;;;;478:9;429:167;;;;502:6;429:167;;;;;;;522:5;429:167;;;;;;;557:11;547:22;;;;;;;;;;;;;;;;;;;;;;;;429:167;;;;;;;584:5;429:167;;;;;408:6;:18;415:10;408:18;;;;;;;;;;;;;;;:188;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;311:291;;;:::o;229:25::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;258:27::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
-  "source": "\npragma solidity ^0.4.2;\n\ncontract CacheGame {\n  \n  struct Cache {\n    address creator;\n    uint bounty;\n    bytes32 title;\n    bytes32 hint;\n    bytes32 passphrase;\n    bool found;\n  }\n  \n  mapping (address => Cache) caches;\n\n  Cache[] public openCaches;\n  Cache[] public closedCaches;\n\n// make a new cache\n\n  function createCache(bytes32 _title, bytes32 _hint, bytes32 _passphrase) public payable \n  {\n    caches[msg.sender] = Cache({\n      creator: msg.sender,\n      bounty: msg.value,\n      title: _title,\n      hint: _hint,\n      passphrase: keccak256(_passphrase),\n      found: false\n    });\n\n  }\n\n//view an active cache\n\n  function viewCache(address cacheAddress) public constant returns(bytes32, bytes32, uint) {\n    // return (caches[cacheAddress].title, caches[cacheAddress].hint, caches[cacheAddress].bounty);\n  }\n\n//solve an existing cache\n\n  // function solveCache(address solvedAddress, bytes32 passPhrase) returns(bool) {\n  //   //check validity\n  //   require(keccak256(caches[solvedAddress].passphrase) == keccak256(passPhrase));\n    \n  //   //declare bounty\n  //   uint bountyAmount = caches[solvedAddress].bounty;\n    \n  //   //set cache to found and zero out bounty\n  //   caches[solvedAddress].found = true;\n  //   caches[solvedAddress].bounty = 0;\n\n  //   //pay bounty\n  //   msg.sender.transfer(bountyAmount);\n\n  // }\n\n\n\n\n\n\n}",
+  "bytecode": "0x6060604052341561000f57600080fd5b6106a58061001e6000396000f300606060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063416960ff1461006757806345aea1c11461009d5780634f13ee44146100dc578063803b69651461017e575b600080fd5b61009b6004808035600019169060200190919080356000191690602001909190803560001916906020019091905050610220565b005b34156100a857600080fd5b6100be6004808035906020019091905050610492565b60405180826000191660001916815260200191505060405180910390f35b34156100e757600080fd5b6100fd60048080359060200190919050506104dd565b604051808773ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200186815260200185600019166000191681526020018460001916600019168152602001836000191660001916815260200182151515158152602001965050505050505060405180910390f35b341561018957600080fd5b61019f6004808035906020019091905050610555565b604051808773ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200186815260200185600019166000191681526020018460001916600019168152602001836000191660001916815260200182151515158152602001965050505050505060405180910390f35b60c0604051908101604052803373ffffffffffffffffffffffffffffffffffffffff168152602001348152602001846000191681526020018360001916815260200182600019168152602001600015158152506000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506020820151816001015560408201518160020190600019169055606082015181600301906000191690556080820151816004019060001916905560a08201518160050160006101000a81548160ff0219169083151502179055509050506001805480600101828161036991906105cd565b916000526020600020906006020160008060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002090919091506000820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff168160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550600182015481600101556002820154816002019060001916905560038201548160030190600019169055600482015481600401906000191690556005820160009054906101000a900460ff168160050160006101000a81548160ff021916908315150217905550505050505050565b60008060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600201549050919050565b6001818154811015156104ec57fe5b90600052602060002090600602016000915090508060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16908060010154908060020154908060030154908060040154908060050160009054906101000a900460ff16905086565b60028181548110151561056457fe5b90600052602060002090600602016000915090508060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16908060010154908060020154908060030154908060040154908060050160009054906101000a900460ff16905086565b8154818355818115116105fa576006028160060283600052602060002091820191016105f991906105ff565b5b505050565b61067691905b8082111561067257600080820160006101000a81549073ffffffffffffffffffffffffffffffffffffffff021916905560018201600090556002820160009055600382016000905560048201600090556005820160006101000a81549060ff021916905550600601610605565b5090565b905600a165627a7a723058206db1deea95c263cf57f9b40b2fa2c15469d1ddc38fcbfc1adb667dfc65926f1a0029",
+  "deployedBytecode": "0x606060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063416960ff1461006757806345aea1c11461009d5780634f13ee44146100dc578063803b69651461017e575b600080fd5b61009b6004808035600019169060200190919080356000191690602001909190803560001916906020019091905050610220565b005b34156100a857600080fd5b6100be6004808035906020019091905050610492565b60405180826000191660001916815260200191505060405180910390f35b34156100e757600080fd5b6100fd60048080359060200190919050506104dd565b604051808773ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200186815260200185600019166000191681526020018460001916600019168152602001836000191660001916815260200182151515158152602001965050505050505060405180910390f35b341561018957600080fd5b61019f6004808035906020019091905050610555565b604051808773ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200186815260200185600019166000191681526020018460001916600019168152602001836000191660001916815260200182151515158152602001965050505050505060405180910390f35b60c0604051908101604052803373ffffffffffffffffffffffffffffffffffffffff168152602001348152602001846000191681526020018360001916815260200182600019168152602001600015158152506000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008201518160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506020820151816001015560408201518160020190600019169055606082015181600301906000191690556080820151816004019060001916905560a08201518160050160006101000a81548160ff0219169083151502179055509050506001805480600101828161036991906105cd565b916000526020600020906006020160008060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002090919091506000820160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff168160000160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550600182015481600101556002820154816002019060001916905560038201548160030190600019169055600482015481600401906000191690556005820160009054906101000a900460ff168160050160006101000a81548160ff021916908315150217905550505050505050565b60008060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600201549050919050565b6001818154811015156104ec57fe5b90600052602060002090600602016000915090508060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16908060010154908060020154908060030154908060040154908060050160009054906101000a900460ff16905086565b60028181548110151561056457fe5b90600052602060002090600602016000915090508060000160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16908060010154908060020154908060030154908060040154908060050160009054906101000a900460ff16905086565b8154818355818115116105fa576006028160060283600052602060002091820191016105f991906105ff565b5b505050565b61067691905b8082111561067257600080820160006101000a81549073ffffffffffffffffffffffffffffffffffffffff021916905560018201600090556002820160009055600382016000905560048201600090556005820160006101000a81549060ff021916905550600601610605565b5090565b905600a165627a7a723058206db1deea95c263cf57f9b40b2fa2c15469d1ddc38fcbfc1adb667dfc65926f1a0029",
+  "sourceMap": "26:1249:0:-;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "26:1249:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;311:322;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;661:90;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;229:25;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;258:27;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;311:322;429:156;;;;;;;;;452:10;429:156;;;;;;478:9;429:156;;;;502:6;429:156;;;;;;;522:5;429:156;;;;;;;547:11;429:156;;;;;;;573:5;429:156;;;;;408:6;:18;415:10;408:18;;;;;;;;;;;;;;;:177;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;592:10;:35;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;608:6;:18;615:10;608:18;;;;;;;;;;;;;;;592:35;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;311:322;;;:::o;661:90::-;700:7;722:6;:18;729:10;722:18;;;;;;;;;;;;;;;:24;;;715:31;;661:90;;;:::o;229:25::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;258:27::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;26:1249::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "\npragma solidity ^0.4.2;\n\ncontract CacheGame {\n  \n  struct Cache {\n    address creator;\n    uint bounty;\n    bytes32 title;\n    bytes32 hint;\n    bytes32 passphrase;\n    bool found;\n  }\n  \n  mapping (address => Cache) caches;\n\n  Cache[] public openCaches;\n  Cache[] public closedCaches;\n\n// make a new cache\n\n  function createCache(bytes32 _title, bytes32 _hint, bytes32 _passphrase) public payable \n  {\n    caches[msg.sender] = Cache({\n      creator: msg.sender,\n      bounty: msg.value,\n      title: _title,\n      hint: _hint,\n      passphrase: _passphrase,\n      found: false\n    });\n\n    openCaches.push(caches[msg.sender]);\n\n  }\n\n//view an active cache\n\n  function viewCache(uint index) returns(bytes32) {\n    return caches[msg.sender].title;\n  }\n\n//solve an existing cache\n\n  // function solveCache(address solvedAddress, bytes32 passPhrase) returns(bool) {\n  //   //check validity\n  //   require(keccak256(caches[solvedAddress].passphrase) == keccak256(passPhrase));\n    \n  //   //declare bounty\n  //   uint bountyAmount = caches[solvedAddress].bounty;\n    \n  //   //set cache to found and zero out bounty\n  //   caches[solvedAddress].found = true;\n  //   caches[solvedAddress].bounty = 0;\n\n  //   //pay bounty\n  //   msg.sender.transfer(bountyAmount);\n\n  // }\n\n\n\n\n\n\n}",
   "sourcePath": "/Users/emessess/FSA/Senior/Stackathon/ETHCache/contracts/CacheGame.sol",
   "ast": {
     "attributes": {
       "absolutePath": "/Users/emessess/FSA/Senior/Stackathon/ETHCache/contracts/CacheGame.sol",
       "exportedSymbols": {
         "CacheGame": [
-          65
+          74
         ]
       }
     },
@@ -320,17 +162,17 @@
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            65
+            74
           ],
           "name": "CacheGame",
-          "scope": 66
+          "scope": 75
         },
         "children": [
           {
             "attributes": {
               "canonicalName": "CacheGame.Cache",
               "name": "Cache",
-              "scope": 65,
+              "scope": 74,
               "visibility": "public"
             },
             "children": [
@@ -499,7 +341,7 @@
             "attributes": {
               "constant": false,
               "name": "caches",
-              "scope": 65,
+              "scope": 74,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "mapping(address => struct CacheGame.Cache storage ref)",
@@ -546,7 +388,7 @@
             "attributes": {
               "constant": false,
               "name": "openCaches",
-              "scope": 65,
+              "scope": 74,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "struct CacheGame.Cache storage ref[] storage ref",
@@ -585,7 +427,7 @@
             "attributes": {
               "constant": false,
               "name": "closedCaches",
-              "scope": 65,
+              "scope": 74,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "struct CacheGame.Cache storage ref[] storage ref",
@@ -630,7 +472,7 @@
               ],
               "name": "createCache",
               "payable": true,
-              "scope": 65,
+              "scope": 74,
               "stateMutability": "payable",
               "superFunction": null,
               "visibility": "public"
@@ -642,7 +484,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "_title",
-                      "scope": 52,
+                      "scope": 59,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bytes32",
@@ -668,7 +510,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "_hint",
-                      "scope": 52,
+                      "scope": 59,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bytes32",
@@ -694,7 +536,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "_passphrase",
-                      "scope": 52,
+                      "scope": 59,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bytes32",
@@ -789,7 +631,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 134,
+                                      "referencedDeclaration": 143,
                                       "type": "msg",
                                       "value": "msg"
                                     },
@@ -859,7 +701,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 134,
+                                      "referencedDeclaration": 143,
                                       "type": "msg",
                                       "value": "msg"
                                     },
@@ -890,7 +732,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 134,
+                                      "referencedDeclaration": 143,
                                       "type": "msg",
                                       "value": "msg"
                                     },
@@ -934,55 +776,16 @@
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "isConstant": false,
-                                  "isLValue": false,
-                                  "isPure": false,
-                                  "isStructConstructorCall": false,
-                                  "lValueRequested": false,
-                                  "names": [
+                                  "overloadedDeclarations": [
                                     null
                                   ],
+                                  "referencedDeclaration": 30,
                                   "type": "bytes32",
-                                  "type_conversion": false
+                                  "value": "_passphrase"
                                 },
-                                "children": [
-                                  {
-                                    "attributes": {
-                                      "argumentTypes": [
-                                        {
-                                          "typeIdentifier": "t_bytes32",
-                                          "typeString": "bytes32"
-                                        }
-                                      ],
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
-                                      "referencedDeclaration": 128,
-                                      "type": "function () pure returns (bytes32)",
-                                      "value": "keccak256"
-                                    },
-                                    "id": 44,
-                                    "name": "Identifier",
-                                    "src": "547:9:0"
-                                  },
-                                  {
-                                    "attributes": {
-                                      "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
-                                      "referencedDeclaration": 30,
-                                      "type": "bytes32",
-                                      "value": "_passphrase"
-                                    },
-                                    "id": 45,
-                                    "name": "Identifier",
-                                    "src": "557:11:0"
-                                  }
-                                ],
-                                "id": 46,
-                                "name": "FunctionCall",
-                                "src": "547:22:0"
+                                "id": 44,
+                                "name": "Identifier",
+                                "src": "547:11:0"
                               },
                               {
                                 "attributes": {
@@ -997,24 +800,24 @@
                                   "type": "bool",
                                   "value": "false"
                                 },
-                                "id": 47,
+                                "id": 45,
                                 "name": "Literal",
-                                "src": "584:5:0"
+                                "src": "573:5:0"
                               }
                             ],
-                            "id": 48,
+                            "id": 46,
                             "name": "FunctionCall",
-                            "src": "429:167:0"
+                            "src": "429:156:0"
                           }
                         ],
-                        "id": 49,
+                        "id": 47,
                         "name": "Assignment",
-                        "src": "408:188:0"
+                        "src": "408:177:0"
                       }
                     ],
-                    "id": 50,
+                    "id": 48,
                     "name": "ExpressionStatement",
-                    "src": "408:188:0"
+                    "src": "408:177:0"
                   },
                   {
                     "children": [
@@ -1060,14 +863,14 @@
                                   "type": "struct CacheGame.Cache storage ref[] storage ref",
                                   "value": "openCaches"
                                 },
-                                "id": 51,
+                                "id": 49,
                                 "name": "Identifier",
-                                "src": "610:10:0"
+                                "src": "592:10:0"
                               }
                             ],
-                            "id": 53,
+                            "id": 51,
                             "name": "MemberAccess",
-                            "src": "610:15:0"
+                            "src": "592:15:0"
                           },
                           {
                             "attributes": {
@@ -1089,9 +892,9 @@
                                   "type": "mapping(address => struct CacheGame.Cache storage ref)",
                                   "value": "caches"
                                 },
-                                "id": 54,
+                                "id": 52,
                                 "name": "Identifier",
-                                "src": "626:6:0"
+                                "src": "608:6:0"
                               },
                               {
                                 "attributes": {
@@ -1111,47 +914,47 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 86,
+                                      "referencedDeclaration": 143,
                                       "type": "msg",
                                       "value": "msg"
                                     },
-                                    "id": 55,
+                                    "id": 53,
                                     "name": "Identifier",
-                                    "src": "633:3:0"
+                                    "src": "615:3:0"
                                   }
                                 ],
-                                "id": 56,
+                                "id": 54,
                                 "name": "MemberAccess",
-                                "src": "633:10:0"
+                                "src": "615:10:0"
                               }
                             ],
-                            "id": 57,
+                            "id": 55,
                             "name": "IndexAccess",
-                            "src": "626:18:0"
+                            "src": "608:18:0"
                           }
                         ],
-                        "id": 58,
+                        "id": 56,
                         "name": "FunctionCall",
-                        "src": "610:35:0"
+                        "src": "592:35:0"
                       }
                     ],
-                    "id": 59,
+                    "id": 57,
                     "name": "ExpressionStatement",
-                    "src": "610:35:0"
+                    "src": "592:35:0"
                   }
                 ],
-                "id": 51,
+                "id": 58,
                 "name": "Block",
-                "src": "402:200:0"
+                "src": "402:231:0"
               }
             ],
-            "id": 52,
+            "id": 59,
             "name": "FunctionDefinition",
-            "src": "311:291:0"
+            "src": "311:322:0"
           },
           {
             "attributes": {
-              "constant": true,
+              "constant": false,
               "implemented": true,
               "isConstructor": false,
               "modifiers": [
@@ -1159,8 +962,8 @@
               ],
               "name": "viewCache",
               "payable": false,
-              "scope": 65,
-              "stateMutability": "view",
+              "scope": 74,
+              "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
             },
@@ -1170,124 +973,8 @@
                   {
                     "attributes": {
                       "constant": false,
-                      "name": "cacheAddress",
-                      "scope": 64,
-                      "stateVariable": false,
-                      "storageLocation": "default",
-                      "type": "address",
-                      "value": null,
-                      "visibility": "internal"
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "name": "address",
-                          "type": "address"
-                        },
-                        "id": 53,
-                        "name": "ElementaryTypeName",
-                        "src": "649:7:0"
-                      }
-                    ],
-                    "id": 54,
-                    "name": "VariableDeclaration",
-                    "src": "649:20:0"
-                  },
-                  {
-                    "attributes": {
-                      "constant": false,
-                      "name": "passPhrase",
-                      "scope": 111,
-                      "stateVariable": false,
-                      "storageLocation": "default",
-                      "type": "bytes32",
-                      "value": null,
-                      "visibility": "internal"
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "name": "bytes32",
-                          "type": "bytes32"
-                        },
-                        "id": 64,
-                        "name": "ElementaryTypeName",
-                        "src": "724:7:0"
-                      }
-                    ],
-                    "id": 65,
-                    "name": "VariableDeclaration",
-                    "src": "724:18:0"
-                  }
-                ],
-                "id": 55,
-                "name": "ParameterList",
-                "src": "648:22:0"
-              },
-              {
-                "attributes": {
-                  "parameters": [
-                    null
-                  ]
-                },
-                "children": [
-                  {
-                    "attributes": {
-                      "constant": false,
-                      "name": "",
-                      "scope": 64,
-                      "stateVariable": false,
-                      "storageLocation": "default",
-                      "type": "bytes32",
-                      "value": null,
-                      "visibility": "internal"
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "name": "bytes32",
-                          "type": "bytes32"
-                        },
-                        "id": 56,
-                        "name": "ElementaryTypeName",
-                        "src": "695:7:0"
-                      }
-                    ],
-                    "id": 57,
-                    "name": "VariableDeclaration",
-                    "src": "695:7:0"
-                  },
-                  {
-                    "attributes": {
-                      "constant": false,
-                      "name": "",
-                      "scope": 64,
-                      "stateVariable": false,
-                      "storageLocation": "default",
-                      "type": "bytes32",
-                      "value": null,
-                      "visibility": "internal"
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "name": "bytes32",
-                          "type": "bytes32"
-                        },
-                        "id": 58,
-                        "name": "ElementaryTypeName",
-                        "src": "704:7:0"
-                      }
-                    ],
-                    "id": 59,
-                    "name": "VariableDeclaration",
-                    "src": "704:7:0"
-                  },
-                  {
-                    "attributes": {
-                      "constant": false,
-                      "name": "",
-                      "scope": 64,
+                      "name": "index",
+                      "scope": 73,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -1302,296 +989,112 @@
                         },
                         "id": 60,
                         "name": "ElementaryTypeName",
-                        "src": "713:4:0"
+                        "src": "680:4:0"
                       }
                     ],
                     "id": 61,
                     "name": "VariableDeclaration",
-                    "src": "713:4:0"
+                    "src": "680:10:0"
                   }
                 ],
                 "id": 62,
                 "name": "ParameterList",
-                "src": "694:24:0"
+                "src": "679:12:0"
               },
               {
                 "children": [
                   {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 73,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 63,
+                        "name": "ElementaryTypeName",
+                        "src": "700:7:0"
+                      }
+                    ],
+                    "id": 64,
+                    "name": "VariableDeclaration",
+                    "src": "700:7:0"
+                  }
+                ],
+                "id": 65,
+                "name": "ParameterList",
+                "src": "699:9:0"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 65
+                    },
                     "children": [
                       {
                         "attributes": {
                           "argumentTypes": null,
                           "isConstant": false,
-                          "isLValue": false,
+                          "isLValue": true,
                           "isPure": false,
-                          "isStructConstructorCall": false,
                           "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
-                          "type": "tuple(bytes32,bytes32,uint256)",
-                          "type_conversion": false,
-                          "isInlineArray": false
+                          "member_name": "title",
+                          "referencedDeclaration": 7,
+                          "type": "bytes32"
                         },
                         "children": [
                           {
                             "attributes": {
                               "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
-                              "referencedDeclaration": 7,
-                              "type": "bytes32",
-                              "value": "require",
                               "isConstant": false,
                               "isLValue": true,
                               "isPure": false,
                               "lValueRequested": false,
-                              "member_name": "title"
-                            },
-                            "id": 75,
-                            "name": "MemberAccess",
-                            "src": "782:26:0",
-                            "children": [
-                              {
-                                "attributes": {
-                                  "argumentTypes": null,
-                                  "isConstant": false,
-                                  "isLValue": true,
-                                  "isPure": false,
-                                  "lValueRequested": false,
-                                  "type": "struct CacheGame.Cache storage ref"
-                                },
-                                "children": [
-                                  {
-                                    "attributes": {
-                                      "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
-                                      "referencedDeclaration": 18,
-                                      "type": "mapping(address => struct CacheGame.Cache storage ref)",
-                                      "value": "caches"
-                                    },
-                                    "id": 72,
-                                    "name": "Identifier",
-                                    "src": "782:6:0"
-                                  },
-                                  {
-                                    "attributes": {
-                                      "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
-                                      "referencedDeclaration": 63,
-                                      "type": "address",
-                                      "value": "cacheAddress"
-                                    },
-                                    "id": 73,
-                                    "name": "Identifier",
-                                    "src": "789:12:0"
-                                  }
-                                ],
-                                "id": 74,
-                                "name": "IndexAccess",
-                                "src": "782:20:0"
-                              }
-                            ]
-                          },
-                          {
-                            "attributes": {
-                              "argumentTypes": null,
-                              "commonType": {
-                                "typeIdentifier": "t_bytes32",
-                                "typeString": "bytes32"
-                              },
-                              "isConstant": false,
-                              "isLValue": true,
-                              "isPure": false,
-                              "lValueRequested": false,
-                              "operator": "==",
-                              "type": "bytes32",
-                              "member_name": "hint",
-                              "referencedDeclaration": 9
+                              "type": "struct CacheGame.Cache storage ref"
                             },
                             "children": [
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "isConstant": false,
-                                  "isLValue": true,
-                                  "isPure": false,
-                                  "isStructConstructorCall": false,
-                                  "lValueRequested": false,
-                                  "names": [
+                                  "overloadedDeclarations": [
                                     null
                                   ],
-                                  "type": "struct CacheGame.Cache storage ref",
-                                  "type_conversion": false
+                                  "referencedDeclaration": 18,
+                                  "type": "mapping(address => struct CacheGame.Cache storage ref)",
+                                  "value": "caches"
                                 },
-                                "children": [
-                                  {
-                                    "attributes": {
-                                      "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
-                                      "referencedDeclaration": 18,
-                                      "type": "mapping(address => struct CacheGame.Cache storage ref)",
-                                      "value": "caches"
-                                    },
-                                    "id": 76,
-                                    "name": "Identifier",
-                                    "src": "810:6:0"
-                                  },
-                                  {
-                                    "attributes": {
-                                      "argumentTypes": null,
-                                      "isConstant": false,
-                                      "isLValue": true,
-                                      "isPure": false,
-                                      "lValueRequested": false,
-                                      "member_name": "passphrase",
-                                      "referencedDeclaration": 63,
-                                      "type": "address",
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
-                                      "value": "cacheAddress"
-                                    },
-                                    "children": [
-                                      {
-                                        "attributes": {
-                                          "argumentTypes": null,
-                                          "isConstant": false,
-                                          "isLValue": true,
-                                          "isPure": false,
-                                          "lValueRequested": false,
-                                          "type": "struct CacheGame.Cache storage ref"
-                                        },
-                                        "children": [
-                                          {
-                                            "attributes": {
-                                              "argumentTypes": null,
-                                              "overloadedDeclarations": [
-                                                null
-                                              ],
-                                              "referencedDeclaration": 18,
-                                              "type": "mapping(address => struct CacheGame.Cache storage ref)",
-                                              "value": "caches"
-                                            },
-                                            "id": 70,
-                                            "name": "Identifier",
-                                            "src": "799:6:0"
-                                          },
-                                          {
-                                            "attributes": {
-                                              "argumentTypes": null,
-                                              "overloadedDeclarations": [
-                                                null
-                                              ],
-                                              "referencedDeclaration": 63,
-                                              "type": "address",
-                                              "value": "cacheAddress"
-                                            },
-                                            "id": 71,
-                                            "name": "Identifier",
-                                            "src": "806:12:0"
-                                          }
-                                        ],
-                                        "id": 72,
-                                        "name": "IndexAccess",
-                                        "src": "799:20:0"
-                                      }
-                                    ],
-                                    "id": 77,
-                                    "name": "Identifier",
-                                    "src": "817:12:0"
-                                  }
-                                ],
-                                "id": 78,
-                                "name": "IndexAccess",
-                                "src": "810:20:0"
+                                "id": 66,
+                                "name": "Identifier",
+                                "src": "722:6:0"
                               },
                               {
                                 "attributes": {
                                   "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": null,
+                                  "type": "address",
+                                  "value": "index",
                                   "isConstant": false,
                                   "isLValue": false,
                                   "isPure": false,
-                                  "isStructConstructorCall": false,
                                   "lValueRequested": false,
-                                  "names": [
-                                    null
-                                  ],
-                                  "type": "bytes32",
-                                  "type_conversion": false
+                                  "member_name": "sender"
                                 },
-                                "children": [
-                                  {
-                                    "attributes": {
-                                      "argumentTypes": [
-                                        {
-                                          "typeIdentifier": "t_bytes32",
-                                          "typeString": "bytes32"
-                                        }
-                                      ],
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
-                                      "referencedDeclaration": 224,
-                                      "type": "function () pure returns (bytes32)",
-                                      "value": "keccak256"
-                                    },
-                                    "id": 75,
-                                    "name": "Identifier",
-                                    "src": "835:9:0"
-                                  },
-                                  {
-                                    "attributes": {
-                                      "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
-                                      "referencedDeclaration": 65,
-                                      "type": "bytes32",
-                                      "value": "passPhrase"
-                                    },
-                                    "id": 76,
-                                    "name": "Identifier",
-                                    "src": "845:10:0"
-                                  }
-                                ],
-                                "id": 77,
-                                "name": "FunctionCall",
-                                "src": "835:21:0"
-                              }
-                            ],
-                            "id": 79,
-                            "name": "MemberAccess",
-                            "src": "810:25:0"
-                          },
-                          {
-                            "attributes": {
-                              "argumentTypes": null,
-                              "isConstant": false,
-                              "isLValue": true,
-                              "isPure": false,
-                              "lValueRequested": false,
-                              "member_name": "bounty",
-                              "referencedDeclaration": 5,
-                              "type": "uint256"
-                            },
-                            "children": [
-                              {
-                                "attributes": {
-                                  "argumentTypes": null,
-                                  "isConstant": false,
-                                  "isLValue": true,
-                                  "isPure": false,
-                                  "lValueRequested": false,
-                                  "type": "struct CacheGame.Cache storage ref"
-                                },
+                                "id": 68,
+                                "name": "MemberAccess",
+                                "src": "729:10:0",
                                 "children": [
                                   {
                                     "attributes": {
@@ -1599,2106 +1102,50 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 18,
-                                      "type": "mapping(address => struct CacheGame.Cache storage ref)",
-                                      "value": "caches"
+                                      "referencedDeclaration": 143,
+                                      "type": "msg",
+                                      "value": "msg"
                                     },
-                                    "id": 80,
+                                    "id": 67,
                                     "name": "Identifier",
-                                    "src": "837:6:0"
-                                  },
-                                  {
-                                    "attributes": {
-                                      "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
-                                      "referencedDeclaration": 63,
-                                      "type": "address",
-                                      "value": "cacheAddress"
-                                    },
-                                    "id": 81,
-                                    "name": "Identifier",
-                                    "src": "844:12:0"
+                                    "src": "729:3:0"
                                   }
-                                ],
-                                "id": 82,
-                                "name": "IndexAccess",
-                                "src": "837:20:0"
+                                ]
                               }
                             ],
-                            "id": 83,
-                            "name": "MemberAccess",
-                            "src": "837:27:0"
+                            "id": 69,
+                            "name": "IndexAccess",
+                            "src": "722:18:0"
                           }
                         ],
-                        "id": 84,
-                        "name": "TupleExpression",
-                        "src": "781:84:0"
+                        "id": 70,
+                        "name": "MemberAccess",
+                        "src": "722:24:0"
                       }
                     ],
-                    "id": 85,
+                    "id": 71,
                     "name": "Return",
-                    "src": "774:91:0",
-                    "attributes": {
-                      "functionReturnParameters": 71
-                    }
-                  },
-                  {
-                    "attributes": {
-                      "assignments": [
-                        82
-                      ]
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "constant": false,
-                          "name": "bountyAmount",
-                          "scope": 111,
-                          "stateVariable": false,
-                          "storageLocation": "default",
-                          "type": "uint256",
-                          "value": null,
-                          "visibility": "internal"
-                        },
-                        "children": [
-                          {
-                            "attributes": {
-                              "name": "uint",
-                              "type": "uint256"
-                            },
-                            "id": 81,
-                            "name": "ElementaryTypeName",
-                            "src": "889:4:0"
-                          }
-                        ],
-                        "id": 82,
-                        "name": "VariableDeclaration",
-                        "src": "889:17:0"
-                      },
-                      {
-                        "attributes": {
-                          "argumentTypes": null,
-                          "isConstant": false,
-                          "isLValue": true,
-                          "isPure": false,
-                          "lValueRequested": false,
-                          "member_name": "bounty",
-                          "referencedDeclaration": 5,
-                          "type": "uint256"
-                        },
-                        "children": [
-                          {
-                            "attributes": {
-                              "argumentTypes": null,
-                              "isConstant": false,
-                              "isLValue": true,
-                              "isPure": false,
-                              "lValueRequested": false,
-                              "type": "struct CacheGame.Cache storage ref"
-                            },
-                            "children": [
-                              {
-                                "attributes": {
-                                  "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
-                                  "referencedDeclaration": 18,
-                                  "type": "mapping(address => struct CacheGame.Cache storage ref)",
-                                  "value": "caches"
-                                },
-                                "id": 83,
-                                "name": "Identifier",
-                                "src": "909:6:0"
-                              },
-                              {
-                                "attributes": {
-                                  "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
-                                  "referencedDeclaration": 63,
-                                  "type": "address",
-                                  "value": "cacheAddress"
-                                },
-                                "id": 84,
-                                "name": "Identifier",
-                                "src": "916:12:0"
-                              }
-                            ],
-                            "id": 85,
-                            "name": "IndexAccess",
-                            "src": "909:20:0"
-                          }
-                        ],
-                        "id": 86,
-                        "name": "MemberAccess",
-                        "src": "909:27:0"
-                      }
-                    ],
-                    "id": 87,
-                    "name": "VariableDeclarationStatement",
-                    "src": "889:47:0"
-                  },
-                  {
-                    "children": [
-                      {
-                        "attributes": {
-                          "argumentTypes": null,
-                          "isConstant": false,
-                          "isLValue": false,
-                          "isPure": false,
-                          "lValueRequested": false,
-                          "operator": "=",
-                          "type": "bool"
-                        },
-                        "children": [
-                          {
-                            "attributes": {
-                              "argumentTypes": null,
-                              "isConstant": false,
-                              "isLValue": true,
-                              "isPure": false,
-                              "lValueRequested": true,
-                              "member_name": "found",
-                              "referencedDeclaration": 13,
-                              "type": "bool"
-                            },
-                            "children": [
-                              {
-                                "attributes": {
-                                  "argumentTypes": null,
-                                  "isConstant": false,
-                                  "isLValue": true,
-                                  "isPure": false,
-                                  "lValueRequested": false,
-                                  "type": "struct CacheGame.Cache storage ref"
-                                },
-                                "children": [
-                                  {
-                                    "attributes": {
-                                      "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
-                                      "referencedDeclaration": 18,
-                                      "type": "mapping(address => struct CacheGame.Cache storage ref)",
-                                      "value": "caches"
-                                    },
-                                    "id": 88,
-                                    "name": "Identifier",
-                                    "src": "992:6:0"
-                                  },
-                                  {
-                                    "attributes": {
-                                      "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
-                                      "referencedDeclaration": 63,
-                                      "type": "address",
-                                      "value": "cacheAddress"
-                                    },
-                                    "id": 89,
-                                    "name": "Identifier",
-                                    "src": "999:12:0"
-                                  }
-                                ],
-                                "id": 90,
-                                "name": "IndexAccess",
-                                "src": "992:20:0"
-                              }
-                            ],
-                            "id": 91,
-                            "name": "MemberAccess",
-                            "src": "992:26:0"
-                          },
-                          {
-                            "attributes": {
-                              "argumentTypes": null,
-                              "hexvalue": "74727565",
-                              "isConstant": false,
-                              "isLValue": false,
-                              "isPure": true,
-                              "lValueRequested": false,
-                              "subdenomination": null,
-                              "token": "bool",
-                              "type": "bool",
-                              "value": "true"
-                            },
-                            "id": 92,
-                            "name": "Literal",
-                            "src": "1021:4:0"
-                          }
-                        ],
-                        "id": 93,
-                        "name": "Assignment",
-                        "src": "992:33:0"
-                      }
-                    ],
-                    "id": 94,
-                    "name": "ExpressionStatement",
-                    "src": "992:33:0"
-                  },
-                  {
-                    "children": [
-                      {
-                        "attributes": {
-                          "argumentTypes": null,
-                          "isConstant": false,
-                          "isLValue": false,
-                          "isPure": false,
-                          "lValueRequested": false,
-                          "operator": "=",
-                          "type": "uint256"
-                        },
-                        "children": [
-                          {
-                            "attributes": {
-                              "argumentTypes": null,
-                              "isConstant": false,
-                              "isLValue": true,
-                              "isPure": false,
-                              "lValueRequested": true,
-                              "member_name": "bounty",
-                              "referencedDeclaration": 5,
-                              "type": "uint256"
-                            },
-                            "children": [
-                              {
-                                "attributes": {
-                                  "argumentTypes": null,
-                                  "isConstant": false,
-                                  "isLValue": true,
-                                  "isPure": false,
-                                  "lValueRequested": false,
-                                  "type": "struct CacheGame.Cache storage ref"
-                                },
-                                "children": [
-                                  {
-                                    "attributes": {
-                                      "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
-                                      "referencedDeclaration": 18,
-                                      "type": "mapping(address => struct CacheGame.Cache storage ref)",
-                                      "value": "caches"
-                                    },
-                                    "id": 95,
-                                    "name": "Identifier",
-                                    "src": "1031:6:0"
-                                  },
-                                  {
-                                    "attributes": {
-                                      "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
-                                      "referencedDeclaration": 63,
-                                      "type": "address",
-                                      "value": "cacheAddress"
-                                    },
-                                    "id": 96,
-                                    "name": "Identifier",
-                                    "src": "1038:12:0"
-                                  }
-                                ],
-                                "id": 97,
-                                "name": "IndexAccess",
-                                "src": "1031:20:0"
-                              }
-                            ],
-                            "id": 98,
-                            "name": "MemberAccess",
-                            "src": "1031:27:0"
-                          },
-                          {
-                            "attributes": {
-                              "argumentTypes": null,
-                              "hexvalue": "30",
-                              "isConstant": false,
-                              "isLValue": false,
-                              "isPure": true,
-                              "lValueRequested": false,
-                              "subdenomination": null,
-                              "token": "number",
-                              "type": "int_const 0",
-                              "value": "0"
-                            },
-                            "id": 99,
-                            "name": "Literal",
-                            "src": "1061:1:0"
-                          }
-                        ],
-                        "id": 100,
-                        "name": "Assignment",
-                        "src": "1031:31:0"
-                      }
-                    ],
-                    "id": 101,
-                    "name": "ExpressionStatement",
-                    "src": "1031:31:0"
-                  },
-                  {
-                    "children": [
-                      {
-                        "attributes": {
-                          "argumentTypes": null,
-                          "isConstant": false,
-                          "isLValue": false,
-                          "isPure": false,
-                          "isStructConstructorCall": false,
-                          "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
-                          "type": "tuple()",
-                          "type_conversion": false
-                        },
-                        "children": [
-                          {
-                            "attributes": {
-                              "argumentTypes": [
-                                {
-                                  "typeIdentifier": "t_uint256",
-                                  "typeString": "uint256"
-                                }
-                              ],
-                              "isConstant": false,
-                              "isLValue": false,
-                              "isPure": false,
-                              "lValueRequested": false,
-                              "member_name": "transfer",
-                              "referencedDeclaration": null,
-                              "type": "function (uint256)"
-                            },
-                            "children": [
-                              {
-                                "attributes": {
-                                  "argumentTypes": null,
-                                  "isConstant": false,
-                                  "isLValue": false,
-                                  "isPure": false,
-                                  "lValueRequested": false,
-                                  "member_name": "sender",
-                                  "referencedDeclaration": null,
-                                  "type": "address"
-                                },
-                                "children": [
-                                  {
-                                    "attributes": {
-                                      "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
-                                      "referencedDeclaration": 230,
-                                      "type": "msg",
-                                      "value": "msg"
-                                    },
-                                    "id": 102,
-                                    "name": "Identifier",
-                                    "src": "1086:3:0"
-                                  }
-                                ],
-                                "id": 105,
-                                "name": "MemberAccess",
-                                "src": "1086:10:0"
-                              }
-                            ],
-                            "id": 106,
-                            "name": "MemberAccess",
-                            "src": "1086:19:0"
-                          },
-                          {
-                            "attributes": {
-                              "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
-                              "referencedDeclaration": 82,
-                              "type": "uint256",
-                              "value": "bountyAmount"
-                            },
-                            "id": 107,
-                            "name": "Identifier",
-                            "src": "1106:12:0"
-                          }
-                        ],
-                        "id": 108,
-                        "name": "FunctionCall",
-                        "src": "1086:33:0"
-                      }
-                    ],
-                    "id": 109,
-                    "name": "ExpressionStatement",
-                    "src": "1086:33:0"
+                    "src": "715:31:0"
                   }
                 ],
-                "id": 63,
+                "id": 72,
                 "name": "Block",
-                "src": "719:105:0",
-                "attributes": {
-                  "statements": [
-                    null
-                  ]
-                }
+                "src": "709:42:0"
               }
             ],
-            "id": 64,
+            "id": 73,
             "name": "FunctionDefinition",
-            "src": "630:194:0"
-          },
-          {
-            "attributes": {
-              "constant": true,
-              "implemented": true,
-              "isConstructor": false,
-              "modifiers": [
-                null
-              ],
-              "name": "getPool",
-              "payable": false,
-              "scope": 149,
-              "stateMutability": "view",
-              "superFunction": null,
-              "visibility": "public"
-            },
-            "children": [
-              {
-                "children": [
-                  {
-                    "attributes": {
-                      "constant": false,
-                      "name": "cacheAddress",
-                      "scope": 137,
-                      "stateVariable": false,
-                      "storageLocation": "default",
-                      "type": "address",
-                      "value": null,
-                      "visibility": "internal"
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "name": "address",
-                          "type": "address"
-                        },
-                        "id": 88,
-                        "name": "ElementaryTypeName",
-                        "src": "914:7:0"
-                      }
-                    ],
-                    "id": 89,
-                    "name": "VariableDeclaration",
-                    "src": "914:20:0"
-                  },
-                  {
-                    "attributes": {
-                      "constant": false,
-                      "name": "passPhrase",
-                      "scope": 137,
-                      "stateVariable": false,
-                      "storageLocation": "default",
-                      "type": "bytes32",
-                      "value": null,
-                      "visibility": "internal"
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "name": "bytes32",
-                          "type": "bytes32"
-                        },
-                        "id": 90,
-                        "name": "ElementaryTypeName",
-                        "src": "936:7:0"
-                      }
-                    ],
-                    "id": 91,
-                    "name": "VariableDeclaration",
-                    "src": "936:18:0"
-                  }
-                ],
-                "id": 88,
-                "name": "ParameterList",
-                "src": "890:2:0",
-                "attributes": {
-                  "parameters": [
-                    null
-                  ]
-                }
-              },
-              {
-                "children": [
-                  {
-                    "attributes": {
-                      "constant": false,
-                      "name": "",
-                      "scope": 96,
-                      "stateVariable": false,
-                      "storageLocation": "default",
-                      "type": "uint256",
-                      "value": null,
-                      "visibility": "internal"
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "name": "uint",
-                          "type": "uint256"
-                        },
-                        "id": 89,
-                        "name": "ElementaryTypeName",
-                        "src": "911:4:0"
-                      }
-                    ],
-                    "id": 90,
-                    "name": "VariableDeclaration",
-                    "src": "911:4:0"
-                  },
-                  {
-                    "attributes": {
-                      "constant": false,
-                      "name": "",
-                      "scope": 137,
-                      "stateVariable": false,
-                      "storageLocation": "default",
-                      "type": "bytes32",
-                      "value": null,
-                      "visibility": "internal"
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "name": "bytes32",
-                          "type": "bytes32"
-                        },
-                        "id": 117,
-                        "name": "ElementaryTypeName",
-                        "src": "1220:7:0"
-                      }
-                    ],
-                    "id": 118,
-                    "name": "VariableDeclaration",
-                    "src": "1220:7:0"
-                  },
-                  {
-                    "attributes": {
-                      "constant": false,
-                      "name": "",
-                      "scope": 137,
-                      "stateVariable": false,
-                      "storageLocation": "default",
-                      "type": "uint256",
-                      "value": null,
-                      "visibility": "internal"
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "name": "uint",
-                          "type": "uint256"
-                        },
-                        "id": 119,
-                        "name": "ElementaryTypeName",
-                        "src": "1229:4:0"
-                      }
-                    ],
-                    "id": 120,
-                    "name": "VariableDeclaration",
-                    "src": "1229:4:0"
-                  }
-                ],
-                "id": 91,
-                "name": "ParameterList",
-                "src": "910:6:0",
-                "attributes": {
-                  "parameters": [
-                    null
-                  ]
-                }
-              },
-              {
-                "children": [
-                  {
-                    "attributes": {
-                      "functionReturnParameters": 91
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "argumentTypes": null,
-                          "isConstant": false,
-                          "isInlineArray": false,
-                          "isLValue": false,
-                          "isPure": false,
-                          "lValueRequested": false,
-                          "type": "uint256",
-                          "isStructConstructorCall": false,
-                          "names": [
-                            null
-                          ],
-                          "type_conversion": false,
-                          "member_name": "balance",
-                          "referencedDeclaration": null
-                        },
-                        "children": [
-                          {
-                            "attributes": {
-                              "argumentTypes": null,
-                              "isConstant": false,
-                              "isLValue": true,
-                              "isPure": false,
-                              "lValueRequested": false,
-                              "member_name": "title",
-                              "referencedDeclaration": 172,
-                              "type": "contract CacheGame",
-                              "overloadedDeclarations": [
-                                null
-                              ],
-                              "value": "this"
-                            },
-                            "children": [
-                              {
-                                "attributes": {
-                                  "argumentTypes": null,
-                                  "isConstant": false,
-                                  "isLValue": true,
-                                  "isPure": false,
-                                  "lValueRequested": false,
-                                  "type": "struct CacheGame.Cache storage ref"
-                                },
-                                "children": [
-                                  {
-                                    "attributes": {
-                                      "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
-                                      "referencedDeclaration": 18,
-                                      "type": "mapping(address => struct CacheGame.Cache storage ref)",
-                                      "value": "caches"
-                                    },
-                                    "id": 122,
-                                    "name": "Identifier",
-                                    "src": "1249:6:0"
-                                  },
-                                  {
-                                    "attributes": {
-                                      "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
-                                      "referencedDeclaration": 113,
-                                      "type": "address",
-                                      "value": "cacheAddress"
-                                    },
-                                    "id": 123,
-                                    "name": "Identifier",
-                                    "src": "1256:12:0"
-                                  }
-                                ],
-                                "id": 124,
-                                "name": "IndexAccess",
-                                "src": "1249:20:0"
-                              }
-                            ],
-                            "id": 92,
-                            "name": "Identifier",
-                            "src": "930:4:0"
-                          },
-                          {
-                            "attributes": {
-                              "argumentTypes": null,
-                              "isConstant": false,
-                              "isLValue": false,
-                              "isPure": false,
-                              "lValueRequested": false,
-                              "member_name": "hint",
-                              "referencedDeclaration": 9,
-                              "type": "bool",
-                              "commonType": {
-                                "typeIdentifier": "t_bytes32",
-                                "typeString": "bytes32"
-                              },
-                              "operator": "=="
-                            },
-                            "children": [
-                              {
-                                "attributes": {
-                                  "argumentTypes": null,
-                                  "isConstant": false,
-                                  "isLValue": false,
-                                  "isPure": false,
-                                  "lValueRequested": false,
-                                  "type": "bytes32",
-                                  "isStructConstructorCall": false,
-                                  "names": [
-                                    null
-                                  ],
-                                  "type_conversion": false
-                                },
-                                "children": [
-                                  {
-                                    "attributes": {
-                                      "argumentTypes": [
-                                        {
-                                          "typeIdentifier": "t_bytes32",
-                                          "typeString": "bytes32"
-                                        }
-                                      ],
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
-                                      "referencedDeclaration": 224,
-                                      "type": "function () pure returns (bytes32)",
-                                      "value": "keccak256"
-                                    },
-                                    "id": 95,
-                                    "name": "Identifier",
-                                    "src": "1001:9:0"
-                                  },
-                                  {
-                                    "attributes": {
-                                      "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
-                                      "referencedDeclaration": 11,
-                                      "type": "bytes32",
-                                      "value": "cacheAddress",
-                                      "isConstant": false,
-                                      "isLValue": true,
-                                      "isPure": false,
-                                      "lValueRequested": false,
-                                      "member_name": "passphrase"
-                                    },
-                                    "id": 99,
-                                    "name": "MemberAccess",
-                                    "src": "1011:31:0",
-                                    "children": [
-                                      {
-                                        "attributes": {
-                                          "argumentTypes": null,
-                                          "isConstant": false,
-                                          "isLValue": true,
-                                          "isPure": false,
-                                          "lValueRequested": false,
-                                          "type": "struct CacheGame.Cache storage ref"
-                                        },
-                                        "children": [
-                                          {
-                                            "attributes": {
-                                              "argumentTypes": null,
-                                              "overloadedDeclarations": [
-                                                null
-                                              ],
-                                              "referencedDeclaration": 18,
-                                              "type": "mapping(address => struct CacheGame.Cache storage ref)",
-                                              "value": "caches"
-                                            },
-                                            "id": 96,
-                                            "name": "Identifier",
-                                            "src": "1011:6:0"
-                                          },
-                                          {
-                                            "attributes": {
-                                              "argumentTypes": null,
-                                              "overloadedDeclarations": [
-                                                null
-                                              ],
-                                              "referencedDeclaration": 89,
-                                              "type": "address",
-                                              "value": "cacheAddress"
-                                            },
-                                            "id": 97,
-                                            "name": "Identifier",
-                                            "src": "1018:12:0"
-                                          }
-                                        ],
-                                        "id": 98,
-                                        "name": "IndexAccess",
-                                        "src": "1011:20:0"
-                                      }
-                                    ]
-                                  }
-                                ],
-                                "id": 100,
-                                "name": "FunctionCall",
-                                "src": "1001:42:0"
-                              },
-                              {
-                                "attributes": {
-                                  "argumentTypes": null,
-                                  "isConstant": false,
-                                  "isLValue": false,
-                                  "isPure": false,
-                                  "isStructConstructorCall": false,
-                                  "lValueRequested": false,
-                                  "names": [
-                                    null
-                                  ],
-                                  "type": "bytes32",
-                                  "type_conversion": false
-                                },
-                                "children": [
-                                  {
-                                    "attributes": {
-                                      "argumentTypes": [
-                                        {
-                                          "typeIdentifier": "t_bytes32",
-                                          "typeString": "bytes32"
-                                        }
-                                      ],
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
-                                      "referencedDeclaration": 224,
-                                      "type": "function () pure returns (bytes32)",
-                                      "value": "keccak256"
-                                    },
-                                    "id": 101,
-                                    "name": "Identifier",
-                                    "src": "1047:9:0"
-                                  },
-                                  {
-                                    "attributes": {
-                                      "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
-                                      "referencedDeclaration": 91,
-                                      "type": "bytes32",
-                                      "value": "passPhrase"
-                                    },
-                                    "id": 102,
-                                    "name": "Identifier",
-                                    "src": "1057:10:0"
-                                  }
-                                ],
-                                "id": 103,
-                                "name": "FunctionCall",
-                                "src": "1047:21:0"
-                              }
-                            ],
-                            "id": 104,
-                            "name": "BinaryOperation",
-                            "src": "1001:67:0"
-                          },
-                          {
-                            "attributes": {
-                              "argumentTypes": null,
-                              "isConstant": false,
-                              "isLValue": true,
-                              "isPure": false,
-                              "lValueRequested": false,
-                              "member_name": "bounty",
-                              "referencedDeclaration": 5,
-                              "type": "uint256"
-                            },
-                            "children": [
-                              {
-                                "attributes": {
-                                  "argumentTypes": null,
-                                  "isConstant": false,
-                                  "isLValue": true,
-                                  "isPure": false,
-                                  "lValueRequested": false,
-                                  "type": "struct CacheGame.Cache storage ref"
-                                },
-                                "children": [
-                                  {
-                                    "attributes": {
-                                      "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
-                                      "referencedDeclaration": 18,
-                                      "type": "mapping(address => struct CacheGame.Cache storage ref)",
-                                      "value": "caches"
-                                    },
-                                    "id": 130,
-                                    "name": "Identifier",
-                                    "src": "1304:6:0"
-                                  },
-                                  {
-                                    "attributes": {
-                                      "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
-                                      "referencedDeclaration": 113,
-                                      "type": "address",
-                                      "value": "cacheAddress"
-                                    },
-                                    "id": 131,
-                                    "name": "Identifier",
-                                    "src": "1311:12:0"
-                                  }
-                                ],
-                                "id": 132,
-                                "name": "IndexAccess",
-                                "src": "1304:20:0"
-                              }
-                            ],
-                            "id": 133,
-                            "name": "MemberAccess",
-                            "src": "1304:27:0"
-                          }
-                        ],
-                        "id": 93,
-                        "name": "MemberAccess",
-                        "src": "930:12:0"
-                      }
-                    ],
-                    "id": 94,
-                    "name": "Return",
-                    "src": "923:19:0"
-                  },
-                  {
-                    "attributes": {
-                      "assignments": [
-                        108
-                      ]
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "constant": false,
-                          "name": "bountyAmount",
-                          "scope": 137,
-                          "stateVariable": false,
-                          "storageLocation": "default",
-                          "type": "uint256",
-                          "value": null,
-                          "visibility": "internal"
-                        },
-                        "children": [
-                          {
-                            "attributes": {
-                              "name": "uint",
-                              "type": "uint256"
-                            },
-                            "id": 107,
-                            "name": "ElementaryTypeName",
-                            "src": "1101:4:0"
-                          }
-                        ],
-                        "id": 108,
-                        "name": "VariableDeclaration",
-                        "src": "1101:17:0"
-                      },
-                      {
-                        "attributes": {
-                          "argumentTypes": null,
-                          "isConstant": false,
-                          "isLValue": true,
-                          "isPure": false,
-                          "lValueRequested": false,
-                          "member_name": "bounty",
-                          "referencedDeclaration": 5,
-                          "type": "uint256"
-                        },
-                        "children": [
-                          {
-                            "attributes": {
-                              "argumentTypes": null,
-                              "isConstant": false,
-                              "isLValue": true,
-                              "isPure": false,
-                              "lValueRequested": false,
-                              "type": "struct CacheGame.Cache storage ref"
-                            },
-                            "children": [
-                              {
-                                "attributes": {
-                                  "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
-                                  "referencedDeclaration": 18,
-                                  "type": "mapping(address => struct CacheGame.Cache storage ref)",
-                                  "value": "caches"
-                                },
-                                "id": 109,
-                                "name": "Identifier",
-                                "src": "1121:6:0"
-                              },
-                              {
-                                "attributes": {
-                                  "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
-                                  "referencedDeclaration": 89,
-                                  "type": "address",
-                                  "value": "cacheAddress"
-                                },
-                                "id": 110,
-                                "name": "Identifier",
-                                "src": "1128:12:0"
-                              }
-                            ],
-                            "id": 111,
-                            "name": "IndexAccess",
-                            "src": "1121:20:0"
-                          }
-                        ],
-                        "id": 112,
-                        "name": "MemberAccess",
-                        "src": "1121:27:0"
-                      }
-                    ],
-                    "id": 113,
-                    "name": "VariableDeclarationStatement",
-                    "src": "1101:47:0"
-                  },
-                  {
-                    "children": [
-                      {
-                        "attributes": {
-                          "argumentTypes": null,
-                          "isConstant": false,
-                          "isLValue": false,
-                          "isPure": false,
-                          "lValueRequested": false,
-                          "operator": "=",
-                          "type": "bool"
-                        },
-                        "children": [
-                          {
-                            "attributes": {
-                              "argumentTypes": null,
-                              "isConstant": false,
-                              "isLValue": true,
-                              "isPure": false,
-                              "lValueRequested": true,
-                              "member_name": "found",
-                              "referencedDeclaration": 13,
-                              "type": "bool"
-                            },
-                            "children": [
-                              {
-                                "attributes": {
-                                  "argumentTypes": null,
-                                  "isConstant": false,
-                                  "isLValue": true,
-                                  "isPure": false,
-                                  "lValueRequested": false,
-                                  "type": "struct CacheGame.Cache storage ref"
-                                },
-                                "children": [
-                                  {
-                                    "attributes": {
-                                      "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
-                                      "referencedDeclaration": 18,
-                                      "type": "mapping(address => struct CacheGame.Cache storage ref)",
-                                      "value": "caches"
-                                    },
-                                    "id": 114,
-                                    "name": "Identifier",
-                                    "src": "1204:6:0"
-                                  },
-                                  {
-                                    "attributes": {
-                                      "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
-                                      "referencedDeclaration": 89,
-                                      "type": "address",
-                                      "value": "cacheAddress"
-                                    },
-                                    "id": 115,
-                                    "name": "Identifier",
-                                    "src": "1211:12:0"
-                                  }
-                                ],
-                                "id": 116,
-                                "name": "IndexAccess",
-                                "src": "1204:20:0"
-                              }
-                            ],
-                            "id": 117,
-                            "name": "MemberAccess",
-                            "src": "1204:26:0"
-                          },
-                          {
-                            "attributes": {
-                              "argumentTypes": null,
-                              "hexvalue": "74727565",
-                              "isConstant": false,
-                              "isLValue": false,
-                              "isPure": true,
-                              "lValueRequested": false,
-                              "subdenomination": null,
-                              "token": "bool",
-                              "type": "bool",
-                              "value": "true"
-                            },
-                            "id": 118,
-                            "name": "Literal",
-                            "src": "1233:4:0"
-                          }
-                        ],
-                        "id": 119,
-                        "name": "Assignment",
-                        "src": "1204:33:0"
-                      }
-                    ],
-                    "id": 120,
-                    "name": "ExpressionStatement",
-                    "src": "1204:33:0"
-                  },
-                  {
-                    "children": [
-                      {
-                        "attributes": {
-                          "argumentTypes": null,
-                          "isConstant": false,
-                          "isLValue": false,
-                          "isPure": false,
-                          "lValueRequested": false,
-                          "operator": "=",
-                          "type": "uint256"
-                        },
-                        "children": [
-                          {
-                            "attributes": {
-                              "argumentTypes": null,
-                              "isConstant": false,
-                              "isLValue": true,
-                              "isPure": false,
-                              "lValueRequested": true,
-                              "member_name": "bounty",
-                              "referencedDeclaration": 5,
-                              "type": "uint256"
-                            },
-                            "children": [
-                              {
-                                "attributes": {
-                                  "argumentTypes": null,
-                                  "isConstant": false,
-                                  "isLValue": true,
-                                  "isPure": false,
-                                  "lValueRequested": false,
-                                  "type": "struct CacheGame.Cache storage ref"
-                                },
-                                "children": [
-                                  {
-                                    "attributes": {
-                                      "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
-                                      "referencedDeclaration": 18,
-                                      "type": "mapping(address => struct CacheGame.Cache storage ref)",
-                                      "value": "caches"
-                                    },
-                                    "id": 121,
-                                    "name": "Identifier",
-                                    "src": "1243:6:0"
-                                  },
-                                  {
-                                    "attributes": {
-                                      "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
-                                      "referencedDeclaration": 89,
-                                      "type": "address",
-                                      "value": "cacheAddress"
-                                    },
-                                    "id": 122,
-                                    "name": "Identifier",
-                                    "src": "1250:12:0"
-                                  }
-                                ],
-                                "id": 123,
-                                "name": "IndexAccess",
-                                "src": "1243:20:0"
-                              }
-                            ],
-                            "id": 124,
-                            "name": "MemberAccess",
-                            "src": "1243:27:0"
-                          },
-                          {
-                            "attributes": {
-                              "argumentTypes": null,
-                              "hexvalue": "30",
-                              "isConstant": false,
-                              "isLValue": false,
-                              "isPure": true,
-                              "lValueRequested": false,
-                              "subdenomination": null,
-                              "token": "number",
-                              "type": "int_const 0",
-                              "value": "0"
-                            },
-                            "id": 125,
-                            "name": "Literal",
-                            "src": "1273:1:0"
-                          }
-                        ],
-                        "id": 126,
-                        "name": "Assignment",
-                        "src": "1243:31:0"
-                      }
-                    ],
-                    "id": 127,
-                    "name": "ExpressionStatement",
-                    "src": "1243:31:0"
-                  },
-                  {
-                    "children": [
-                      {
-                        "attributes": {
-                          "argumentTypes": null,
-                          "isConstant": false,
-                          "isLValue": false,
-                          "isPure": false,
-                          "isStructConstructorCall": false,
-                          "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
-                          "type": "tuple()",
-                          "type_conversion": false
-                        },
-                        "children": [
-                          {
-                            "attributes": {
-                              "argumentTypes": [
-                                {
-                                  "typeIdentifier": "t_uint256",
-                                  "typeString": "uint256"
-                                }
-                              ],
-                              "isConstant": false,
-                              "isLValue": false,
-                              "isPure": false,
-                              "lValueRequested": false,
-                              "member_name": "transfer",
-                              "referencedDeclaration": null,
-                              "type": "function (uint256)"
-                            },
-                            "children": [
-                              {
-                                "attributes": {
-                                  "argumentTypes": null,
-                                  "isConstant": false,
-                                  "isLValue": false,
-                                  "isPure": false,
-                                  "lValueRequested": false,
-                                  "member_name": "sender",
-                                  "referencedDeclaration": null,
-                                  "type": "address"
-                                },
-                                "children": [
-                                  {
-                                    "attributes": {
-                                      "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
-                                      "referencedDeclaration": 230,
-                                      "type": "msg",
-                                      "value": "msg"
-                                    },
-                                    "id": 128,
-                                    "name": "Identifier",
-                                    "src": "1298:3:0"
-                                  }
-                                ],
-                                "id": 131,
-                                "name": "MemberAccess",
-                                "src": "1298:10:0"
-                              }
-                            ],
-                            "id": 132,
-                            "name": "MemberAccess",
-                            "src": "1298:19:0"
-                          },
-                          {
-                            "attributes": {
-                              "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
-                              "referencedDeclaration": 108,
-                              "type": "uint256",
-                              "value": "bountyAmount"
-                            },
-                            "id": 133,
-                            "name": "Identifier",
-                            "src": "1318:12:0"
-                          }
-                        ],
-                        "id": 134,
-                        "name": "FunctionCall",
-                        "src": "1298:33:0"
-                      }
-                    ],
-                    "id": 135,
-                    "name": "ExpressionStatement",
-                    "src": "1298:33:0"
-                  }
-                ],
-                "id": 95,
-                "name": "Block",
-                "src": "917:30:0"
-              }
-            ],
-            "id": 96,
-            "name": "FunctionDefinition",
-            "src": "874:73:0"
-          },
-          {
-            "attributes": {
-              "constant": false,
-              "implemented": true,
-              "isConstructor": false,
-              "modifiers": [
-                null
-              ],
-              "name": "solveCache",
-              "payable": false,
-              "scope": 149,
-              "stateMutability": "nonpayable",
-              "superFunction": null,
-              "visibility": "public"
-            },
-            "children": [
-              {
-                "children": [
-                  {
-                    "attributes": {
-                      "constant": false,
-                      "name": "solvedAddress",
-                      "scope": 148,
-                      "stateVariable": false,
-                      "storageLocation": "default",
-                      "type": "address",
-                      "value": null,
-                      "visibility": "internal"
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "name": "address",
-                          "type": "address"
-                        },
-                        "id": 97,
-                        "name": "ElementaryTypeName",
-                        "src": "998:7:0"
-                      }
-                    ],
-                    "id": 98,
-                    "name": "VariableDeclaration",
-                    "src": "998:21:0"
-                  },
-                  {
-                    "attributes": {
-                      "constant": false,
-                      "name": "passPhrase",
-                      "scope": 148,
-                      "stateVariable": false,
-                      "storageLocation": "default",
-                      "type": "bytes32",
-                      "value": null,
-                      "visibility": "internal"
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "name": "bytes32",
-                          "type": "bytes32"
-                        },
-                        "id": 99,
-                        "name": "ElementaryTypeName",
-                        "src": "1021:7:0"
-                      }
-                    ],
-                    "id": 100,
-                    "name": "VariableDeclaration",
-                    "src": "1021:18:0"
-                  }
-                ],
-                "id": 101,
-                "name": "ParameterList",
-                "src": "997:43:0"
-              },
-              {
-                "children": [
-                  {
-                    "attributes": {
-                      "constant": false,
-                      "name": "",
-                      "scope": 148,
-                      "stateVariable": false,
-                      "storageLocation": "default",
-                      "type": "bool",
-                      "value": null,
-                      "visibility": "internal"
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "name": "bool",
-                          "type": "bool"
-                        },
-                        "id": 102,
-                        "name": "ElementaryTypeName",
-                        "src": "1049:4:0"
-                      }
-                    ],
-                    "id": 103,
-                    "name": "VariableDeclaration",
-                    "src": "1049:4:0"
-                  }
-                ],
-                "id": 104,
-                "name": "ParameterList",
-                "src": "1048:6:0"
-              },
-              {
-                "children": [
-                  {
-                    "children": [
-                      {
-                        "attributes": {
-                          "argumentTypes": null,
-                          "isConstant": false,
-                          "isLValue": false,
-                          "isPure": false,
-                          "isStructConstructorCall": false,
-                          "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
-                          "type": "tuple()",
-                          "type_conversion": false
-                        },
-                        "children": [
-                          {
-                            "attributes": {
-                              "argumentTypes": [
-                                {
-                                  "typeIdentifier": "t_bool",
-                                  "typeString": "bool"
-                                }
-                              ],
-                              "overloadedDeclarations": [
-                                null
-                              ],
-                              "referencedDeclaration": 164,
-                              "type": "function (bool) pure",
-                              "value": "require"
-                            },
-                            "id": 105,
-                            "name": "Identifier",
-                            "src": "1082:7:0"
-                          },
-                          {
-                            "attributes": {
-                              "argumentTypes": null,
-                              "commonType": {
-                                "typeIdentifier": "t_bytes32",
-                                "typeString": "bytes32"
-                              },
-                              "isConstant": false,
-                              "isLValue": false,
-                              "isPure": false,
-                              "lValueRequested": false,
-                              "operator": "==",
-                              "type": "bool"
-                            },
-                            "children": [
-                              {
-                                "attributes": {
-                                  "argumentTypes": null,
-                                  "isConstant": false,
-                                  "isLValue": false,
-                                  "isPure": false,
-                                  "isStructConstructorCall": false,
-                                  "lValueRequested": false,
-                                  "names": [
-                                    null
-                                  ],
-                                  "type": "bytes32",
-                                  "type_conversion": false
-                                },
-                                "children": [
-                                  {
-                                    "attributes": {
-                                      "argumentTypes": [
-                                        {
-                                          "typeIdentifier": "t_bytes32",
-                                          "typeString": "bytes32"
-                                        }
-                                      ],
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
-                                      "referencedDeclaration": 155,
-                                      "type": "function () pure returns (bytes32)",
-                                      "value": "keccak256"
-                                    },
-                                    "id": 106,
-                                    "name": "Identifier",
-                                    "src": "1090:9:0"
-                                  },
-                                  {
-                                    "attributes": {
-                                      "argumentTypes": null,
-                                      "isConstant": false,
-                                      "isLValue": true,
-                                      "isPure": false,
-                                      "lValueRequested": false,
-                                      "member_name": "passphrase",
-                                      "referencedDeclaration": 11,
-                                      "type": "bytes32"
-                                    },
-                                    "children": [
-                                      {
-                                        "attributes": {
-                                          "argumentTypes": null,
-                                          "isConstant": false,
-                                          "isLValue": true,
-                                          "isPure": false,
-                                          "lValueRequested": false,
-                                          "type": "struct CacheGame.Cache storage ref"
-                                        },
-                                        "children": [
-                                          {
-                                            "attributes": {
-                                              "argumentTypes": null,
-                                              "overloadedDeclarations": [
-                                                null
-                                              ],
-                                              "referencedDeclaration": 18,
-                                              "type": "mapping(address => struct CacheGame.Cache storage ref)",
-                                              "value": "caches"
-                                            },
-                                            "id": 107,
-                                            "name": "Identifier",
-                                            "src": "1100:6:0"
-                                          },
-                                          {
-                                            "attributes": {
-                                              "argumentTypes": null,
-                                              "overloadedDeclarations": [
-                                                null
-                                              ],
-                                              "referencedDeclaration": 98,
-                                              "type": "address",
-                                              "value": "solvedAddress"
-                                            },
-                                            "id": 108,
-                                            "name": "Identifier",
-                                            "src": "1107:13:0"
-                                          }
-                                        ],
-                                        "id": 109,
-                                        "name": "IndexAccess",
-                                        "src": "1100:21:0"
-                                      }
-                                    ],
-                                    "id": 110,
-                                    "name": "MemberAccess",
-                                    "src": "1100:32:0"
-                                  }
-                                ],
-                                "id": 111,
-                                "name": "FunctionCall",
-                                "src": "1090:43:0"
-                              },
-                              {
-                                "attributes": {
-                                  "argumentTypes": null,
-                                  "isConstant": false,
-                                  "isLValue": false,
-                                  "isPure": false,
-                                  "isStructConstructorCall": false,
-                                  "lValueRequested": false,
-                                  "names": [
-                                    null
-                                  ],
-                                  "type": "bytes32",
-                                  "type_conversion": false
-                                },
-                                "children": [
-                                  {
-                                    "attributes": {
-                                      "argumentTypes": [
-                                        {
-                                          "typeIdentifier": "t_bytes32",
-                                          "typeString": "bytes32"
-                                        }
-                                      ],
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
-                                      "referencedDeclaration": 155,
-                                      "type": "function () pure returns (bytes32)",
-                                      "value": "keccak256"
-                                    },
-                                    "id": 112,
-                                    "name": "Identifier",
-                                    "src": "1137:9:0"
-                                  },
-                                  {
-                                    "attributes": {
-                                      "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
-                                      "referencedDeclaration": 100,
-                                      "type": "bytes32",
-                                      "value": "passPhrase"
-                                    },
-                                    "id": 113,
-                                    "name": "Identifier",
-                                    "src": "1147:10:0"
-                                  }
-                                ],
-                                "id": 114,
-                                "name": "FunctionCall",
-                                "src": "1137:21:0"
-                              }
-                            ],
-                            "id": 115,
-                            "name": "BinaryOperation",
-                            "src": "1090:68:0"
-                          }
-                        ],
-                        "id": 116,
-                        "name": "FunctionCall",
-                        "src": "1082:77:0"
-                      }
-                    ],
-                    "id": 117,
-                    "name": "ExpressionStatement",
-                    "src": "1082:77:0"
-                  },
-                  {
-                    "attributes": {
-                      "assignments": [
-                        119
-                      ]
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "constant": false,
-                          "name": "bountyAmount",
-                          "scope": 148,
-                          "stateVariable": false,
-                          "storageLocation": "default",
-                          "type": "uint256",
-                          "value": null,
-                          "visibility": "internal"
-                        },
-                        "children": [
-                          {
-                            "attributes": {
-                              "name": "uint",
-                              "type": "uint256"
-                            },
-                            "id": 118,
-                            "name": "ElementaryTypeName",
-                            "src": "1191:4:0"
-                          }
-                        ],
-                        "id": 119,
-                        "name": "VariableDeclaration",
-                        "src": "1191:17:0"
-                      },
-                      {
-                        "attributes": {
-                          "argumentTypes": null,
-                          "isConstant": false,
-                          "isLValue": true,
-                          "isPure": false,
-                          "lValueRequested": false,
-                          "member_name": "bounty",
-                          "referencedDeclaration": 5,
-                          "type": "uint256"
-                        },
-                        "children": [
-                          {
-                            "attributes": {
-                              "argumentTypes": null,
-                              "isConstant": false,
-                              "isLValue": true,
-                              "isPure": false,
-                              "lValueRequested": false,
-                              "type": "struct CacheGame.Cache storage ref"
-                            },
-                            "children": [
-                              {
-                                "attributes": {
-                                  "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
-                                  "referencedDeclaration": 18,
-                                  "type": "mapping(address => struct CacheGame.Cache storage ref)",
-                                  "value": "caches"
-                                },
-                                "id": 120,
-                                "name": "Identifier",
-                                "src": "1211:6:0"
-                              },
-                              {
-                                "attributes": {
-                                  "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
-                                  "referencedDeclaration": 98,
-                                  "type": "address",
-                                  "value": "solvedAddress"
-                                },
-                                "id": 121,
-                                "name": "Identifier",
-                                "src": "1218:13:0"
-                              }
-                            ],
-                            "id": 122,
-                            "name": "IndexAccess",
-                            "src": "1211:21:0"
-                          }
-                        ],
-                        "id": 123,
-                        "name": "MemberAccess",
-                        "src": "1211:28:0"
-                      }
-                    ],
-                    "id": 124,
-                    "name": "VariableDeclarationStatement",
-                    "src": "1191:48:0"
-                  },
-                  {
-                    "children": [
-                      {
-                        "attributes": {
-                          "argumentTypes": null,
-                          "isConstant": false,
-                          "isLValue": false,
-                          "isPure": false,
-                          "lValueRequested": false,
-                          "operator": "=",
-                          "type": "bool"
-                        },
-                        "children": [
-                          {
-                            "attributes": {
-                              "argumentTypes": null,
-                              "isConstant": false,
-                              "isLValue": true,
-                              "isPure": false,
-                              "lValueRequested": true,
-                              "member_name": "found",
-                              "referencedDeclaration": 13,
-                              "type": "bool"
-                            },
-                            "children": [
-                              {
-                                "attributes": {
-                                  "argumentTypes": null,
-                                  "isConstant": false,
-                                  "isLValue": true,
-                                  "isPure": false,
-                                  "lValueRequested": false,
-                                  "type": "struct CacheGame.Cache storage ref"
-                                },
-                                "children": [
-                                  {
-                                    "attributes": {
-                                      "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
-                                      "referencedDeclaration": 18,
-                                      "type": "mapping(address => struct CacheGame.Cache storage ref)",
-                                      "value": "caches"
-                                    },
-                                    "id": 125,
-                                    "name": "Identifier",
-                                    "src": "1295:6:0"
-                                  },
-                                  {
-                                    "attributes": {
-                                      "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
-                                      "referencedDeclaration": 98,
-                                      "type": "address",
-                                      "value": "solvedAddress"
-                                    },
-                                    "id": 126,
-                                    "name": "Identifier",
-                                    "src": "1302:13:0"
-                                  }
-                                ],
-                                "id": 127,
-                                "name": "IndexAccess",
-                                "src": "1295:21:0"
-                              }
-                            ],
-                            "id": 128,
-                            "name": "MemberAccess",
-                            "src": "1295:27:0"
-                          },
-                          {
-                            "attributes": {
-                              "argumentTypes": null,
-                              "hexvalue": "74727565",
-                              "isConstant": false,
-                              "isLValue": false,
-                              "isPure": true,
-                              "lValueRequested": false,
-                              "subdenomination": null,
-                              "token": "bool",
-                              "type": "bool",
-                              "value": "true"
-                            },
-                            "id": 129,
-                            "name": "Literal",
-                            "src": "1325:4:0"
-                          }
-                        ],
-                        "id": 130,
-                        "name": "Assignment",
-                        "src": "1295:34:0"
-                      }
-                    ],
-                    "id": 131,
-                    "name": "ExpressionStatement",
-                    "src": "1295:34:0"
-                  },
-                  {
-                    "children": [
-                      {
-                        "attributes": {
-                          "argumentTypes": null,
-                          "isConstant": false,
-                          "isLValue": false,
-                          "isPure": false,
-                          "lValueRequested": false,
-                          "operator": "=",
-                          "type": "uint256"
-                        },
-                        "children": [
-                          {
-                            "attributes": {
-                              "argumentTypes": null,
-                              "isConstant": false,
-                              "isLValue": true,
-                              "isPure": false,
-                              "lValueRequested": true,
-                              "member_name": "bounty",
-                              "referencedDeclaration": 5,
-                              "type": "uint256"
-                            },
-                            "children": [
-                              {
-                                "attributes": {
-                                  "argumentTypes": null,
-                                  "isConstant": false,
-                                  "isLValue": true,
-                                  "isPure": false,
-                                  "lValueRequested": false,
-                                  "type": "struct CacheGame.Cache storage ref"
-                                },
-                                "children": [
-                                  {
-                                    "attributes": {
-                                      "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
-                                      "referencedDeclaration": 18,
-                                      "type": "mapping(address => struct CacheGame.Cache storage ref)",
-                                      "value": "caches"
-                                    },
-                                    "id": 132,
-                                    "name": "Identifier",
-                                    "src": "1335:6:0"
-                                  },
-                                  {
-                                    "attributes": {
-                                      "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
-                                      "referencedDeclaration": 98,
-                                      "type": "address",
-                                      "value": "solvedAddress"
-                                    },
-                                    "id": 133,
-                                    "name": "Identifier",
-                                    "src": "1342:13:0"
-                                  }
-                                ],
-                                "id": 134,
-                                "name": "IndexAccess",
-                                "src": "1335:21:0"
-                              }
-                            ],
-                            "id": 135,
-                            "name": "MemberAccess",
-                            "src": "1335:28:0"
-                          },
-                          {
-                            "attributes": {
-                              "argumentTypes": null,
-                              "hexvalue": "30",
-                              "isConstant": false,
-                              "isLValue": false,
-                              "isPure": true,
-                              "lValueRequested": false,
-                              "subdenomination": null,
-                              "token": "number",
-                              "type": "int_const 0",
-                              "value": "0"
-                            },
-                            "id": 136,
-                            "name": "Literal",
-                            "src": "1366:1:0"
-                          }
-                        ],
-                        "id": 137,
-                        "name": "Assignment",
-                        "src": "1335:32:0"
-                      }
-                    ],
-                    "id": 138,
-                    "name": "ExpressionStatement",
-                    "src": "1335:32:0"
-                  },
-                  {
-                    "children": [
-                      {
-                        "attributes": {
-                          "argumentTypes": null,
-                          "isConstant": false,
-                          "isLValue": false,
-                          "isPure": false,
-                          "isStructConstructorCall": false,
-                          "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
-                          "type": "tuple()",
-                          "type_conversion": false
-                        },
-                        "children": [
-                          {
-                            "attributes": {
-                              "argumentTypes": [
-                                {
-                                  "typeIdentifier": "t_uint256",
-                                  "typeString": "uint256"
-                                }
-                              ],
-                              "isConstant": false,
-                              "isLValue": false,
-                              "isPure": false,
-                              "lValueRequested": false,
-                              "member_name": "transfer",
-                              "referencedDeclaration": null,
-                              "type": "function (uint256)"
-                            },
-                            "children": [
-                              {
-                                "attributes": {
-                                  "argumentTypes": null,
-                                  "isConstant": false,
-                                  "isLValue": false,
-                                  "isPure": false,
-                                  "lValueRequested": false,
-                                  "member_name": "sender",
-                                  "referencedDeclaration": null,
-                                  "type": "address"
-                                },
-                                "children": [
-                                  {
-                                    "attributes": {
-                                      "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
-                                      "referencedDeclaration": 161,
-                                      "type": "msg",
-                                      "value": "msg"
-                                    },
-                                    "id": 139,
-                                    "name": "Identifier",
-                                    "src": "1391:3:0"
-                                  }
-                                ],
-                                "id": 142,
-                                "name": "MemberAccess",
-                                "src": "1391:10:0"
-                              }
-                            ],
-                            "id": 143,
-                            "name": "MemberAccess",
-                            "src": "1391:19:0"
-                          },
-                          {
-                            "attributes": {
-                              "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
-                              "referencedDeclaration": 119,
-                              "type": "uint256",
-                              "value": "bountyAmount"
-                            },
-                            "id": 144,
-                            "name": "Identifier",
-                            "src": "1411:12:0"
-                          }
-                        ],
-                        "id": 145,
-                        "name": "FunctionCall",
-                        "src": "1391:33:0"
-                      }
-                    ],
-                    "id": 146,
-                    "name": "ExpressionStatement",
-                    "src": "1391:33:0"
-                  }
-                ],
-                "id": 147,
-                "name": "Block",
-                "src": "1055:375:0"
-              }
-            ],
-            "id": 148,
-            "name": "FunctionDefinition",
-            "src": "978:452:0"
+            "src": "661:90:0"
           }
         ],
-        "id": 65,
+        "id": 74,
         "name": "ContractDefinition",
-        "src": "26:1322:0"
+        "src": "26:1249:0"
       }
     ],
-    "id": 66,
+    "id": 75,
     "name": "SourceUnit",
-    "src": "1:1347:0"
+    "src": "1:1274:0"
   },
   "compiler": {
     "name": "solc",
@@ -3708,9 +1155,9 @@
     "4447": {
       "events": {},
       "links": {},
-      "address": "0xa4516018d6b0313a03a69130356f23a168c0ab10"
+      "address": "0xd8672a4a1bf37d36bef74e36edb4f17845e76f4e"
     }
   },
   "schemaVersion": "1.0.1",
-  "updatedAt": "2017-11-13T00:13:10.804Z"
+  "updatedAt": "2017-11-13T02:44:08.114Z"
 }

@@ -26,16 +26,18 @@ contract CacheGame {
       bounty: msg.value,
       title: _title,
       hint: _hint,
-      passphrase: keccak256(_passphrase),
+      passphrase: _passphrase,
       found: false
     });
+
+    openCaches.push(caches[msg.sender]);
 
   }
 
 //view an active cache
 
-  function viewCache(address cacheAddress) public constant returns(bytes32, bytes32, uint) {
-    // return (caches[cacheAddress].title, caches[cacheAddress].hint, caches[cacheAddress].bounty);
+  function viewCache(uint index) returns(bytes32) {
+    return caches[msg.sender].title;
   }
 
 //solve an existing cache

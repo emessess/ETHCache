@@ -15,7 +15,6 @@ class App extends Component {
     super(props)
 
     this.state = {
-      storageValue: '',
       accounts: [],
       web3: null,
       meta: null,
@@ -47,23 +46,22 @@ class App extends Component {
 
   instantiateContract() {
 
-    let cacheGameInstance;
+    let meta;
 
     cacheGame.setProvider(this.state.web3.currentProvider);
     // Get accounts.
     this.state.web3.eth.getAccounts((error, accounts) => {
       cacheGame.deployed().then((instance) => {
-        cacheGameInstance = instance;
-        this.setState({ accounts, meta: cacheGameInstance })
-        return this.state.meta.createCache(
+        meta = instance;
+        this.setState({ accounts })
+        return meta.createCache(
           'first cache',
           'it is somewhere',
           'this is the passphrase', 
           {from: accounts[0], value: 1, gas: 500000});
       }).then((result) => {
         // Get the value from the contract to prove it worked.
-        console.log(result);
-        return this.state.meta.viewCache.call(accounts[0])
+        return meta.viewCache(0);
       }).then((result) => {
         // Update state with the result.
         // let stringResult = this.state.web3.toAscii(result[0]);
@@ -102,21 +100,23 @@ class App extends Component {
     return (
       <div className="App">
         <nav className="navbar pure-menu pure-menu-horizontal">
-            <a href="#" className="pure-menu-heading pure-menu-link">Note To Self</a>
+            <a href="#" className="pure-menu-heading pure-menu-link">ETHCache</a>
         </nav>
 
         <main className="container">
           <div className="pure-g">
             <div className="pure-u-1-1">
-              <h1>Ethereum Time Capsule</h1>
-              <form onSubmit={this.handleSubmit}>
-                <input type="text" maxLength="32" value={this.state.newMsgInput} onChange={this.handleChange}/>
-                <input type="submit" value="Transact" />
-              </form>
+              <h1>Can you find the cache?</h1>
             </div>
             <div className="pure-u-1-1">
-              <p>Your message is: {this.state.storageValue}</p>
-              <button onClick={this.checkChain}>Check Chain</button>
+              <p>Cache Name:</p>
+              <p>Cache Bounty:</p>
+              <p>Cache Hit:</p>
+              <form onSubmit={this.handleSubmit}>
+                <input type="text" maxLength="32" value={this.state.newMsgInput} onChange={this.handleChange}/>
+                <input type="submit" value="Submit" />
+              </form>
+              {/* <button onClick={this.checkChain}>Check Chain</button> */}
             </div>
           </div>
         </main>
