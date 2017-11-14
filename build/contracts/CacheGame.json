@@ -683,7 +683,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 314,
+                                      "referencedDeclaration": 257,
                                       "type": "msg",
                                       "value": "msg"
                                     },
@@ -753,7 +753,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 314,
+                                      "referencedDeclaration": 257,
                                       "type": "msg",
                                       "value": "msg"
                                     },
@@ -784,7 +784,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 314,
+                                      "referencedDeclaration": 257,
                                       "type": "msg",
                                       "value": "msg"
                                     },
@@ -859,7 +859,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 308,
+                                      "referencedDeclaration": 251,
                                       "type": "function () pure returns (bytes32)",
                                       "value": "keccak256"
                                     },
@@ -1010,7 +1010,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 314,
+                                      "referencedDeclaration": 257,
                                       "type": "msg",
                                       "value": "msg"
                                     },
@@ -1191,7 +1191,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 314,
+                                      "referencedDeclaration": 257,
                                       "type": "msg",
                                       "value": "msg"
                                     },
@@ -1367,7 +1367,7 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 317,
+                              "referencedDeclaration": 260,
                               "type": "function (bool) pure",
                               "value": "require"
                             },
@@ -1416,7 +1416,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 308,
+                                      "referencedDeclaration": 251,
                                       "type": "function () pure returns (bytes32)",
                                       "value": "keccak256"
                                     },
@@ -1515,7 +1515,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 308,
+                                      "referencedDeclaration": 251,
                                       "type": "function () pure returns (bytes32)",
                                       "value": "keccak256"
                                     },
@@ -1907,7 +1907,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 314,
+                                      "referencedDeclaration": 257,
                                       "type": "msg",
                                       "value": "msg"
                                     },
@@ -1977,7 +1977,7 @@
     "4447": {
       "events": {},
       "links": {},
-      "address": "0x627f090b3d1195d771e358e60afe14ec5ed91651"
+      "address": "0x6b5a4751307f6751e265c194244552a9995b6b3d"
     },
     "1510545045143": {
       "events": {},
@@ -1986,5 +1986,5 @@
     }
   },
   "schemaVersion": "1.0.1",
-  "updatedAt": "2017-11-14T03:05:20.325Z"
+  "updatedAt": "2017-11-14T03:13:18.582Z"
 }
