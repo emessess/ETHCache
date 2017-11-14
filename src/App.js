@@ -16,14 +16,17 @@ class App extends Component {
 
     this.state = {
       accounts: [],
-      bounty: 0,
+      bounty: 5000,
       web3: null,
       meta: null,
       newMsgInput: '',
+      solveInput: '',
+      ended: false
     }
 
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmitBounty.bind(this);
+    this.handleSubmitSolve = this.handleSubmitSolve.bind(this);
     this.checkChain = this.checkChain.bind(this);
   }
 
@@ -52,41 +55,49 @@ class App extends Component {
     cacheGame.setProvider(this.state.web3.currentProvider);
     // Get accounts.
     this.state.web3.eth.getAccounts((error, accounts) => {
-      cacheGame.deployed(123, accounts[0]).then((instance) => {
+      cacheGame.deployed(123, {from: accounts[0]}).then((instance) => {
         meta = instance;
         this.setState({ accounts, meta })
       }).then((result) => {
-        // Get the value from the contract to prove it worked.
         return this.state.meta.checkBounty.call();
       }).then((result) => {
-        // Update state with the result.
-        // let stringResult = this.state.web3.toAscii(result[0]);
-        return this.setState({ bounty: result.c[0]})
-      }).catch()
+        this.setState({ bounty: result.c[0]});  //HACK hardcode to show bounty in JSX while working it out
+        return this.state.meta.checkEnded.call();
+      }).then(ended => this.setState({ended}))
     })
   }
 
   handleChange(event) {
-    this.setState({newMsgInput: event.target.value})
+    if (event.target.name === "bounty") this.setState({newMsgInput: event.target.value});
+    if (event.target.name === "solve") this.setState({solveInput: event.target.value});
   }
 
-  handleSubmit(event) {
+  handleSubmitBounty(event) {
     event.preventDefault();
-    this.state.meta.addBounty()
+    return this.state.meta.addBounty({from: this.state.accounts[0], to: this.state.meta.address, value: +event.target.value})
     .then(transaction => {
       //transaction object is here now, could use to render transaction reciept number
       console.log(transaction);
       this.setState({newMsgInput: ''});
     })
-
-
+  }
+  handleSubmitSolve(event) {
+    event.preventDefault();
+    this.setState({solveInput: ''});
+    this.state.meta.findCache(+event.target.value, {from: this.state.accounts[0]})
+    .then(transaction => {
+      console.log(transaction);
+      return this.state.meta.checkEnded.call()
+    })
+    .then(value => this.setState({ended: value}))
   }
 
   checkChain() {
-    this.state.checkBounty.call()
-    .then(result => {
-      console.log(result.toNumber())
-      return this.setState({ bounty: result.c[0]})
+    this.state.meta.checkBounty().then(num => {
+      this.setState({bounty: num.c[0]})
+      this.state.meta.checkEnded.call().then(value => {
+        console.log(value);
+      })
     })
   }
 
@@ -103,16 +114,22 @@ class App extends Component {
               <h1>Lady on the Lake</h1>
             </div>
             <div className="pure-u-1-1">
+              <div>
+                {this.state.ended && <h3>Solved!</h3>}
+              </div>
               <p>Geohash: u4pruydqqvj</p>
               <p>Range: 500 ft</p>
-              <p>Bounty: {this.state.bounty}</p>
-              <p>Hint: You knew her as a child. Always finds the sunniest spot, always before noon.</p>
-              <button onClick={this.checkChain}>Add to bounty.</button>
-              <button onClick={this.checkChain}>Check for chain updates.</button>
+              <p>Bounty: 1.25 ETH</p>
+              <p>Hint: <em>You knew her as a child. Always finds the sunniest spot, always before noon.</em></p>
               <form onSubmit={this.handleSubmit}>
-                <input type="text" placeholder="Enter code..." maxLength="32" value={this.state.newMsgInput} onChange={this.handleChange}/>
+                <input name="bounty" type="text" placeholder="Enter amount..." maxLength="32" value={this.state.newMsgInput} onChange={this.handleChange}/>
+                <input type="submit" value="Add Bounty" />
+              </form>
+              <form onSubmit={this.handleSubmitSolve}>
+                <input name="solve" type="text" placeholder="Enter code..." maxLength="32" value={this.state.solveInput} onChange={this.handleChange}/>
                 <input type="submit" value="Solve Cache" />
               </form>
+              <button onClick={this.checkChain}>Check for chain updates.</button>
             </div>
           </div>
         </main>

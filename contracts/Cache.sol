@@ -1,10 +1,10 @@
 pragma solidity ^0.4.11;
 
 contract Cache {
+
     address public finder;
     address public placer;
 
-    // Current state of the game
     uint public bounty;
     uint passphrase;
 
@@ -15,17 +15,20 @@ contract Cache {
     event CacheFound(address winnner);
 
     //constructor
-    function Cache (uint _passphrase, address _placer) {
-        placer = _placer;
-        bounty = 0;
+    function Cache (uint _passphrase) {
+        placer = msg.sender;
+        bounty = msg.value;
         passphrase = _passphrase;
-        
+        ended = false;
     }
 
     //add to the current bounty
     function addBounty() payable {
-       require(ended == false);
-       bounty = bounty + msg.value;
+       bounty += msg.value;
+    }
+
+    function checkEnded() constant returns(bool) {
+      return ended;
     }
 
     function checkBounty() constant returns (uint) {
@@ -37,7 +40,7 @@ contract Cache {
     function findCache(uint _code) returns(uint) {
         // If the code is not correct, end the cache game
 
-      if (_code == passphrase) {
+      if (!ended && _code == passphrase) {
         finder = msg.sender;
         cacheEnd();
         return bounty;
@@ -46,9 +49,7 @@ contract Cache {
         return 0;
     }
 
-
     function cacheEnd() internal {
-
         ended = true;
         CacheFound(finder);
 

@@ -26,7 +26,7 @@ contract CacheGame {
       bounty: msg.value,
       title: _title,
       hint: _hint,
-      passphrase: _passphrase,
+      passphrase: keccak256(_passphrase),
       found: false
     });
 

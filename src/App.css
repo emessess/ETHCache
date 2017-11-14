@@ -9,6 +9,11 @@ h1, h2, h3 {
   font-family: 'Oswald', 'Arial Narrow', sans-serif;
 }
 
+form {
+  margin-top: .5em;
+  margin-bottom: .5em;
+}
+
 code {
   display: block;
   margin: 20px 0 15px 0;
@@ -32,6 +37,10 @@ code {
 
 .pure-form input[type="text"]:focus {
   border-color: #0c1a2b;
+}
+
+#chainButt {
+  margin-top: 2em;
 }
 
 /* NAVBAR */
